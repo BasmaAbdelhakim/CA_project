@@ -33,6 +33,19 @@ GPIO_t CLCD_PINS = { .pin = CLCD_RS | CLCD_RW | CLCD_E | CLCD_D0 | CLCD_D1
 #define DISPLAY_CLEAR_COMMAND    3U
 #define ENTRY_MODE_SET           4U
 
+#define DEFAULt_FS_CONFIGURATION       0x30
+#define FUNCTION_SET_CONFIGURATION     (DEFAULt_FS_CONFIGURATION | \
+                                            CLCD_CHARACTER_FONT  | \
+                                            CLCD_LINES_DISPLAYED)
+
+#define DEFAULt_DISPLAY_CONFIGURATION       0x08
+#define DISPLAY_ON_OFF_CONFIGURATION       (DEFAULt_DISPLAY_CONFIGURATION| \
+		                                    CLCLD_DIAPLY_MODE | \
+											CLCD_CURSOR_MODE  | \
+											CLCD_BLINK_MODE)
+
+#define DISPLAY_CLEAR                    0x01
+
  /**********************************************************************************************/
 
 
@@ -180,6 +193,8 @@ static u8 HCLCD_initProcess(void) {
 	static u8 currentInitState = FUNCTION_SET_COMMAND;
 	static u8 counter = 0;
 	u8 iterator;
+	u8 pinValue;
+	u8 maxDataBits=8;
 	u8 returnValue = status_NOk;
     static u8 CLCD_E_value=0;
 	if (counter >= 20) {
@@ -198,12 +213,12 @@ static u8 HCLCD_initProcess(void) {
 				GPIO_directWritePin(CLCD_PORT ,CLCD_RS, PIN_RESET);
 				GPIO_directWritePin(CLCD_PORT ,CLCD_RW, PIN_RESET);
 
-				u8 functionConfiguration[8] = { PIN_RESET, PIN_RESET, CLCD_CHARACTER_FONT,
-				CLCD_LINES_DISPLAYED, PIN_SET, PIN_SET, PIN_RESET, PIN_RESET };
-				for (iterator = 0; iterator < 8; iterator++) {
+				for (iterator = 0; iterator < maxDataBits; iterator++) {
+					pinValue = (FUNCTION_SET_CONFIGURATION >> iterator) & 0x01;
 					GPIO_directWritePin(CLCD_PORT, CLCD_DATA_PINS[iterator],
-							functionConfiguration[iterator]);
+							pinValue);
 				}
+
 				/*Let CLCD_E = 1*/
 				GPIO_directWritePin(CLCD_PORT, CLCD_E, PIN_SET);
 			}
@@ -224,13 +239,13 @@ static u8 HCLCD_initProcess(void) {
 				GPIO_directWritePin(CLCD_PORT, CLCD_RW, PIN_RESET);
 
 				/*ON/OFF configuration*/
-				u8 ON_OFF_configuration[8] = { CLCD_BLINK_MODE,
-				CLCD_CURSOR_MODE,
-				CLCLD_DIAPLY_MODE, PIN_SET, PIN_RESET, PIN_RESET, PIN_RESET, PIN_RESET};
-				for (iterator = 0; iterator < 8; iterator++) {
+				for (iterator = 0; iterator < maxDataBits; iterator++) {
+					pinValue = (DISPLAY_ON_OFF_CONFIGURATION >> iterator)
+							& 0x01;
 					GPIO_directWritePin(CLCD_PORT, CLCD_DATA_PINS[iterator],
-							ON_OFF_configuration[iterator]);
+							pinValue);
 				}
+
 				/*Let CLCD_E = 1*/
 				GPIO_directWritePin(CLCD_PORT, CLCD_E, PIN_SET);
 			}
@@ -251,14 +266,11 @@ static u8 HCLCD_initProcess(void) {
 				GPIO_directWritePin(CLCD_PORT, CLCD_RW, PIN_RESET);
 
 				/*Clear configuration*/
-				GPIO_directWritePin(CLCD_PORT, CLCD_D0, PIN_SET);
-				GPIO_directWritePin(CLCD_PORT, CLCD_D1, PIN_RESET);
-				GPIO_directWritePin(CLCD_PORT, CLCD_D2, PIN_RESET);
-				GPIO_directWritePin(CLCD_PORT, CLCD_D3, PIN_RESET);
-				GPIO_directWritePin(CLCD_PORT, CLCD_D4, PIN_RESET);
-				GPIO_directWritePin(CLCD_PORT, CLCD_D5, PIN_RESET);
-				GPIO_directWritePin(CLCD_PORT, CLCD_D6, PIN_RESET);
-				GPIO_directWritePin(CLCD_PORT, CLCD_D7, PIN_RESET);
+				for (iterator = 0; iterator < maxDataBits; iterator++) {
+					pinValue = (DISPLAY_CLEAR >> iterator) & 0x01;
+					GPIO_directWritePin(CLCD_PORT, CLCD_DATA_PINS[iterator],
+							pinValue);
+				}
 
 
 				/*Let CLCD_E = 1*/
@@ -318,6 +330,9 @@ static void HCLCD_writeStringProcess(void) {
 /***********************************************************************************************/
 static void HCLCD_clearProcess(void) {
     static u8 CLCD_E_value;
+    u8 iterator;
+    u8 pinValue;
+    u8 maxDataBits=8;
 	/*If CLCD_E == 1*/
 	GPIO_directReadPin(CLCD_PORT,CLCD_E, &CLCD_E_value);
 	if (CLCD_E_value) {
@@ -333,14 +348,10 @@ static void HCLCD_clearProcess(void) {
 		GPIO_directWritePin(CLCD_PORT, CLCD_RW, PIN_RESET);
 
 		/*Clear configuration*/
-		GPIO_directWritePin(CLCD_PORT, CLCD_D0, PIN_SET);
-		GPIO_directWritePin(CLCD_PORT, CLCD_D1, PIN_RESET);
-		GPIO_directWritePin(CLCD_PORT, CLCD_D2, PIN_RESET);
-		GPIO_directWritePin(CLCD_PORT, CLCD_D3, PIN_RESET);
-		GPIO_directWritePin(CLCD_PORT, CLCD_D4, PIN_RESET);
-		GPIO_directWritePin(CLCD_PORT, CLCD_D5, PIN_RESET);
-		GPIO_directWritePin(CLCD_PORT, CLCD_D6, PIN_RESET);
-		GPIO_directWritePin(CLCD_PORT, CLCD_D7, PIN_RESET);
+		for (iterator = 0; iterator < maxDataBits; iterator++) {
+			pinValue = (DISPLAY_CLEAR >> iterator) & 0x01;
+			GPIO_directWritePin(CLCD_PORT, CLCD_DATA_PINS[iterator], pinValue);
+		}
 
 		/*Let CLCD_E = 1*/
 		GPIO_directWritePin(CLCD_PORT, CLCD_E, PIN_SET);

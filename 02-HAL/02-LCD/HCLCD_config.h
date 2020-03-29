@@ -24,28 +24,28 @@
 #define CLCD_D7          PIN10
 
 /*Function Set Command Configuration*/
-#define CLCD_8_BITS_MODE               1U
-#define CLCD_4_BITS_MODE               0U
+#define CLCD_8_BITS_MODE               0x01
+#define CLCD_4_BITS_MODE               0x00
 
-#define CLCD_1_LINES_DISPLAY           0U
-#define CLCD_2_LINES_DISPLAY           1U
+#define CLCD_1_LINES_DISPLAY           0x00
+#define CLCD_2_LINES_DISPLAY           0x08
 
-#define DOT_CHARACTER_FONT_5_x_7       0U
-#define DOT_CHARACTER_FONT_5_x_8       1U
+#define DOT_CHARACTER_FONT_5_x_7       0x00
+#define DOT_CHARACTER_FONT_5_x_8       0x04
 
 #define CLCD_BITS_MODE         CLCD_8_BITS_MODE
 #define CLCD_LINES_DISPLAYED   CLCD_2_LINES_DISPLAY
 #define CLCD_CHARACTER_FONT    DOT_CHARACTER_FONT_5_x_7
 
 /*ON_OFF Command Configuration*/
-#define DISPLAY_OFF   0U
-#define DISPLAY_ON    1U
+#define DISPLAY_OFF   0x00
+#define DISPLAY_ON    0x04
 
-#define CURSOR_OFF    0U
-#define CURSOR_ON     1U
+#define CURSOR_OFF    0x00
+#define CURSOR_ON     0x02
 
-#define BLINK_OFF     0U
-#define BLINK_ON      1U
+#define BLINK_OFF     0x00
+#define BLINK_ON      0x01
 
 #define CLCLD_DIAPLY_MODE   DISPLAY_ON
 #define CLCD_CURSOR_MODE    CURSOR_OFF
