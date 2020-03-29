@@ -7,11 +7,12 @@
 /* File Name: GPIO.h                            */
 /************************************************/
 
+#include "STD_TYPES.h"
 #ifndef GPIO_H
 #define GPIO_H
 
-#define PIN_SET 1
-#define PIN_RESET 2
+#define PIN_SET   1
+#define PIN_RESET 0
 
 #define CONFIG_INPUT_ANALOG                           0x00000000
 #define CONFIG_INPUT_FLOATING                         0x00000004
@@ -134,7 +135,7 @@ extern ERROR_STATUS GPIO_directWritePin(void * port ,u32 pin, u8 value);
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS GPIO_readPin(GPIO_t * peri, u32 *value);
+extern ERROR_STATUS GPIO_readPin(GPIO_t * peri, u8 *value);
 
 /* 
   Description: This function shall write value on pin 
