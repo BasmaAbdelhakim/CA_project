@@ -15,13 +15,13 @@
 #define MODE_CONFIG_SIZE 4
 
 typedef struct {
-  uint32_t CRL;
-  uint32_t CRH;
-  uint32_t IDR;
-  uint32_t ODR;
-  uint32_t BSRR;
-  uint32_t BRR;
-  uint32_t LCKR;
+  u32 CRL;
+  u32 CRH;
+  u32 IDR;
+  u32 ODR;
+  u32 BSRR;
+  u32 BRR;
+  u32 LCKR;
   
 } GPIO;
 
@@ -32,16 +32,16 @@ typedef struct {
   Input: 
         1- peri -> Address of GPIO struct of GPIO_t type 
   
-  Output: status_t
+  Output: ERROR_STATUS
 
  */
-extern status_t GPIO_initPin(GPIO_t * peri)
+extern ERROR_STATUS GPIO_initPin(GPIO_t * peri)
 {
-  status_t currentStatus = status_Ok;
-  uint32_t temp;
-  uint32_t modeConfiguration;
-  uint32_t updatedPin;
-  uint32_t pinLoopPosition,realPosition,currentPosition;
+  ERROR_STATUS currentStatus = status_Ok;
+  u32 temp;
+  u32 modeConfiguration;
+  u32 updatedPin;
+  u32 pinLoopPosition,realPosition,currentPosition;
   
   GPIO * PORT = (GPIO *) peri->port;
   
@@ -85,50 +85,85 @@ extern status_t GPIO_initPin(GPIO_t * peri)
   Input: 
         1- peri -> Address of GPIO struct of GPIO_t type 
         2- value -> The value to be written on pin, options are:
-           1) pinSet
-           2) pinReset
+           1) PIN_SET
+           2) PIN_RESET
   
-  Output: status_t
+  Output: ERROR_STATUS
 
  */
-extern status_t GPIO_writePin(GPIO_t * peri, uint32_t value)
+extern ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value)
 {
   
-  status_t currentStatus = status_Ok;
+  ERROR_STATUS currentStatus = status_Ok;
   
   GPIO * PORT = (GPIO *) peri->port;
   
-  if (value == pinSet)
+  if (value == PIN_SET)
   {
     PORT->BSRR = peri->pin;
   }
-  else if (value == pinReset)
+  else if (value == PIN_RESET)
   {
     PORT->BRR = peri->pin;
   }
   else
   {
-    currentStatus =  status_Nok;
+    currentStatus =  status_NOk;
   }
   return currentStatus;
 }
 
-/* This function takes a reference to GPIO_t type peripheral and returns its value */
+/* 
+  Description: This function shall write value on pin 
+  
+  Input: 
+        1- port -> port options are: PORTx where x = A B ... G 
+        2- pin -> pin options are: PINx where x = 0 .. 15
+        3- value -> The value to be written on pin, options are:
+           1) PIN_SET
+           2) PIN_RESET
+  
+  Output: ERROR_STATUS
+
+ */
+extern ERROR_STATUS GPIO_directWritePin(void * port ,u32 pin, u32 value)
+{
+  ERROR_STATUS currentStatus = status_Ok;
+  
+  GPIO * PORT = (GPIO *) port;
+  
+  if (value == PIN_SET)
+  {
+    PORT->BSRR = pin;
+  }
+  else if (value == PIN_RESET)
+  {
+    PORT->BRR = pin;
+  }
+  else
+  {
+    currentStatus =  status_NOk;
+  }
+  
+  return currentStatus;
+}
+
+
 /* 
   Description: This function shall read value of a pin 
   
   Input: 
         1- peri -> Address of GPIO struct of GPIO_t type 
         2- value -> pointer to hold value of a pin, return options are:
-           1) pinSet
-           2) pinReset
+           1) PIN_SET
+           2) PIN_RESET
   
-  Output: status_t
+  Output: ERROR_STATUS
 
  */
-extern status_t GPIO_readPin(GPIO_t * peri, uint32_t *value)
+extern ERROR_STATUS GPIO_readPin(GPIO_t * peri, u32 *value)
 {
-  status_t status = status_Ok;
+  ERROR_STATUS status = status_Ok;
   
   GPIO * PORT = (GPIO *) peri->port;
   
@@ -137,3 +172,27 @@ extern status_t GPIO_readPin(GPIO_t * peri, uint32_t *value)
   return status;
 }
 
+
+/* 
+  Description: This function shall write value on pin 
+  
+  Input: 
+        1- port -> port options are: PORTx where x = A B ... G 
+        2- pin -> pin options are: PINx where x = 0 .. 15
+        3- value -> pointer to hold value of a pin, return options are:
+           1) PIN_SET
+           2) PIN_RESET
+  
+  Output: ERROR_STATUS
+
+ */
+extern ERROR_STATUS GPIO_directReadPin(void * port ,u32 pin, u32 * value)
+{
+  ERROR_STATUS status = status_Ok;
+  
+  GPIO * PORT = (GPIO *) port;
+  
+  * value = PORT->IDR & pin;
+    
+  return status;
+}

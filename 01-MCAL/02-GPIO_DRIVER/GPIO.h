@@ -10,8 +10,8 @@
 #ifndef GPIO_H
 #define GPIO_H
 
-#define pinSet 1
-#define pinReset 2
+#define PIN_SET 1
+#define PIN_RESET 2
 
 #define CONFIG_INPUT_ANALOG                           0x00000000
 #define CONFIG_INPUT_FLOATING                         0x00000004
@@ -74,9 +74,9 @@
 */
 typedef struct {
   
-  uint32_t pin;
-  uint32_t mode;
-  uint32_t configuration;
+  u32 pin;
+  u32 mode;
+  u32 configuration;
   void * port;
   
 }GPIO_t;
@@ -88,10 +88,10 @@ typedef struct {
   Input: 
         1- peri -> Address of GPIO struct of GPIO_t type 
   
-  Output: status_t
+  Output: ERROR_STATUS
 
  */
-extern status_t GPIO_initPin(GPIO_t * peri);
+extern ERROR_STATUS GPIO_initPin(GPIO_t * peri);
 
 /* 
   Description: This function shall write value on pin 
@@ -99,13 +99,28 @@ extern status_t GPIO_initPin(GPIO_t * peri);
   Input: 
         1- peri -> Address of GPIO struct of GPIO_t type 
         2- value -> The value to be written on pin, options are:
-           1) pinSet
-           2) pinReset
+           1) PIN_SET
+           2) PIN_RESET
   
-  Output: status_t
+  Output: ERROR_STATUS
 
  */
-extern status_t GPIO_writePin(GPIO_t * peri, uint32_t value);
+extern ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value);
+
+/* 
+  Description: This function shall write value on pin 
+  
+  Input: 
+        1- port -> port options are: PORTx where x = A B ... G 
+        2- pin -> pin options are: PINx where x = 0 .. 15
+        3- value -> The value to be written on pin, options are:
+           1) PIN_SET
+           2) PIN_RESET
+  
+  Output: ERROR_STATUS
+
+ */
+extern ERROR_STATUS GPIO_directWritePin(void * port ,u32 pin, u32 value);
 
 /* 
   Description: This function shall read value of a pin 
@@ -113,12 +128,27 @@ extern status_t GPIO_writePin(GPIO_t * peri, uint32_t value);
   Input: 
         1- peri -> Address of GPIO struct of GPIO_t type 
         2- value -> pointer to hold value of a pin, return options are:
-           1) pinSet
-           2) pinReset
+           1) PIN_SET
+           2) PIN_RESET
   
-  Output: status_t
+  Output: ERROR_STATUS
 
  */
-extern status_t GPIO_readPin(GPIO_t * peri, uint32_t *value);
+extern ERROR_STATUS GPIO_readPin(GPIO_t * peri, u32 *value);
+
+/* 
+  Description: This function shall write value on pin 
+  
+  Input: 
+        1- port -> port options are: PORTx where x = A B ... G 
+        2- pin -> pin options are: PINx where x = 0 .. 15
+        3- value -> pointer to hold value of a pin, return options are:
+           1) PIN_SET
+           2) PIN_RESET
+  
+  Output: ERROR_STATUS
+
+ */
+extern ERROR_STATUS GPIO_directReadPin(void * port ,u32 pin, u32 * value);
 
 #endif
