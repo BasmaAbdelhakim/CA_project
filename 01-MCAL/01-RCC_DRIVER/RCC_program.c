@@ -36,11 +36,11 @@ ERROR_STATUS RCC_CLK_Control(u32 clock, u8 status) {
 	switch (status) {
 	case ON:
 		RCC->CR |= clock;
-		returnValue = OK;
+		returnValue = status_Ok;
 		break;
 	case OFF:
 		RCC->CR &= ~clock;
-		returnValue = OK;
+		returnValue = status_Ok;
 	}
 	return returnValue;
 }
