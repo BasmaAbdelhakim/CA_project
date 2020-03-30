@@ -8,19 +8,37 @@
 #ifndef HCLCD_CONFIG_H_
 #define HCLCD_CONFIG_H_
 
-#define CLCD_PORT     PORTA
-
+#define CLCD_RS_PORT     PORTA
 #define CLCD_RS          PIN0
+
+#define CLCD_RW_PORT     PORTA
 #define CLCD_RW          PIN1
+
+#define CLCD_E_PORT     PORTA
 #define CLCD_E           PIN2
 
+#define CLCD_D0_PORT     PORTA
 #define CLCD_D0          PIN3
+
+#define CLCD_D1_PORT     PORTA
 #define CLCD_D1          PIN4
+
+#define CLCD_D2_PORT     PORTA
 #define CLCD_D2          PIN5
+
+#define CLCD_D3_PORT     PORTA
 #define CLCD_D3          PIN6
+
+#define CLCD_D4_PORT     PORTA
 #define CLCD_D4          PIN7
+
+#define CLCD_D5_PORT     PORTA
 #define CLCD_D5          PIN8
+
+#define CLCD_D6_PORT     PORTA
 #define CLCD_D6          PIN9
+
+#define CLCD_D7_PORT     PORTA
 #define CLCD_D7          PIN10
 
 /*Function Set Command Configuration*/
