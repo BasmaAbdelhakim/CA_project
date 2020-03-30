@@ -190,9 +190,20 @@ extern ERROR_STATUS GPIO_directReadPin(void * port ,u32 pin, u8 * value)
 {
   ERROR_STATUS status = status_Ok;
   
+  u8 temp;
+  
   GPIO * PORT = (GPIO *) port;
   
-  * value = PORT->IDR & pin;
+  temp = PORT->IDR & pin;
+  
+  if (temp != 0)
+  {
+    *value = 1;
+  }
+  else
+  {
+    *value = 0;
+  }
     
   return status;
 }
