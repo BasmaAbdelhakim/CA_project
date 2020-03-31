@@ -36,10 +36,23 @@ typedef struct
  */
 extern ERROR_STATUS SwitchTask_Init(u32 switchNum);
 
+/*
+  Description: This function shall return the specified switch state which can be
+  PRESSED or RELEASED
+
+  Input:
+        1- switchNum which holds the index of the switch in the switch array
+        2- switchValue -> Pointer to hold the switch value
+
+  Output: status_t
+
+ */
+extern ERROR_STATUS Switch_GetSwitchState(u32 switchNum, u8 * switchValue);
+
 
 /* 
   Description: This function shall return the specified switch state which can be 
-  PRESSED or RELEASED
+  PRESSED or RELEASED using SCHEDULER
 
   Input: 
         1- switchNum which holds the index of the switch in the switch array 
@@ -54,7 +67,7 @@ extern ERROR_STATUS SwitchTask_GetSwitchState(u32 switchNum, u8 * switchValue);
   Description: This function is the switch scheduler task
 
   Input: void
-  
+
   Output: void
 
  */

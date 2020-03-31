@@ -70,6 +70,40 @@ extern ERROR_STATUS SwitchTask_Init(u32 switchNum)
   Description: This function shall return the specified switch state which can be 
   PRESSED or RELEASED
 
+  Input:
+        1- switchNum which holds the index of the switch in the switch array
+        2- switchValue -> Pointer to hold the switch value
+
+  Output: status_t
+
+ */
+extern ERROR_STATUS Switch_GetSwitchState(u32 switchNum, u8 * switchValue)
+{
+	ERROR_STATUS status = status_Ok;
+
+  /* Creating switch element */
+  switchmap_t * switchMapElement;
+  /* Getting required switch configurations */
+  switchMapElement = getSwitchMap(switchNum);
+
+  /* Reading GPIO value */
+	GPIO_directReadPin(switchMapElement->port,switchMapElement->pin,switchValue);
+
+  /* Toggling switchValue in case of pull up switch */
+  if (PULL_UP == switchMapElement->pullState)
+  {
+    * switchValue = * switchValue ^ 0x01;
+  }
+
+  return status;
+
+}
+
+
+/*
+  Description: This function shall return the specified switch state which can be
+  PRESSED or RELEASED using SCHEDULER
+
   Input: 
         1- switchNum which holds the index of the switch in the switch array 
         2- switchValue -> Pointer to hold the switch value
@@ -92,7 +126,7 @@ extern ERROR_STATUS SwitchTask_GetSwitchState(u32 switchNum, u8 * switchValue)
   Description: This function is the switch scheduler task
 
   Input: void
-  
+
   Output: void
 
  */
@@ -129,14 +163,14 @@ extern void switchTask (void)
 		{
 			counter[localSwitchLoop] =0;
 		}
-    
+
     /* If the state is the same for fixed number of counts, then the recent current state is the actual state*/
 		if (counter[localSwitchLoop] == MAX_COUNTS)
 		{
 			switchState[localSwitchLoop] = currState;
 			counter[localSwitchLoop] =0;
 		}
-    
+
 		prevState[localSwitchLoop] = currState;
 	}
 
