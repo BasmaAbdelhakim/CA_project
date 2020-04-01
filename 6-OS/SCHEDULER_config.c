@@ -17,7 +17,6 @@
 
 /* tasks and first delay  may be changed according to the application */
 
-
 extern Task_t Lcd_Task;
 extern Task_t Debounce_Task;
 extern Task_t APP_Task;
@@ -26,20 +25,21 @@ extern Task_t APP_Task;
 
 static SysTaskInfo_t SysTasksInfo[]={
   
-										{&Lcd_Task,0},        //LCD EN
-										{&Debounce_Task,0},  //DEBOUNCING
-										{&APP_Task,0},      //APP
+										{&Lcd_Task,0},        //LCD EN 2ms
+										{&Debounce_Task,0},  //DEBOUNCING 4ms
+										{&APP_Task,0},      //APP ?ms
 
 									};
 
 
 /***************************************** function prototype *******************************************************/
 
-SysTaskInfo_t* SysTasksInfoFunc(void);
+extern SysTaskInfo_t* SysTasksInfoFunc(void);
 
 
 
 /****************************************** function definition *****************************************************/
+
 SysTaskInfo_t* SysTasksInfoFunc(void)
 {
 	return SysTasksInfo;

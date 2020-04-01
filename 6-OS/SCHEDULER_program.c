@@ -27,18 +27,16 @@ typedef struct
 static SysTask_t  SysTasks[NUMBER_OF_TASKS];
 static u8 OS_Flag;
 
-/************************************** extern function prototype *****************************************/
+/**************************************** functions prototypes ********************************************/
 
 extern SysTaskInfo_t* SysTasksInfoFunc(void);
 
 
-/************************************** static functions prototypes ***************************************/
-
-static void OSFlag_Set(void);
+static void OsFlag_Set(void);
 static void Scheduler(void);
 
+/**************************************** Functions definitions *******************************************/
 
-/************************************* Functions definitions **********************************************/
 
 
 /******************************************************************
@@ -55,7 +53,7 @@ void SCHEDULER_Init(void)
 
 	SYSTICK_Init();
 	SYSTICK_SetTimerMS(SYSTICK_TICK_TIME_MS);
-	SYSTICK_SetCallBack(&OSFlag_Set);
+	SYSTICK_SetCallBack(&OsFlag_Set);
 
 	for(TaskNumber=0 ; TaskNumber < NUMBER_OF_TASKS ; TaskNumber++)
 	{
@@ -111,7 +109,7 @@ static void Scheduler(void)
 
 
 
-static void OSFlag_Set(void)
+static void OsFlag_Set(void)
 {
 	OS_Flag = 1;
 }
