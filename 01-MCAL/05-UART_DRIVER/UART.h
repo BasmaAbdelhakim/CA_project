@@ -76,7 +76,6 @@ extern ERROR_STATUS UART_u8SetRxCbf(Rxcbf_t Rxcbf);
 
 
 
-void clear_TXE_TC (void);
 
 
 

@@ -103,11 +103,7 @@ static appTxNotify_t  appTxNotify;
 
 
 
- void clear_TXE_TC (void)
-{
-	UART -> SR &= SR_TC_CLR;
 
-}
 /*
  *
  * Description: This API initialize UART
@@ -166,8 +162,6 @@ extern void UART_voidInit (void)
 	/*Enable transmitter and receive interrupts */
 	UART -> CR1 |= CR1_TCIE  | CR1_RXNEIE ;
 
-	/*         clear TXE flag                    */
-	clear_TXE_TC ();
 
 
 }
@@ -327,9 +321,9 @@ void USART1_IRQHandler (void)
 
 	if ((UART->SR & SR_TC) && (TxBuffer.data) )
 	{
-		/* Clear TXE Bit */
-		//UART -> SR = SR_TXE_CLR;
-		//UART -> SR &= SR_TC_CLR;
+		/* Clear TC Bit */
+	
+		UART -> SR &= SR_TC_CLR;
 
 		if (TxBuffer.position != TxBuffer.size)
 		{
