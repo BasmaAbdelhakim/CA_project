@@ -99,7 +99,7 @@ void NVIC_voidInitPriority (void)
  * Input:  Interrupt request number 0:240 , PriorityLevel
  * Output: void
  * */
-void NVIC_u8SetPriority(u8 Copy_u8IntReqNum , u8 Copy_u8PriorityLevel)
+void NVIC_u8SetPriority(u32 Copy_u8IntReqNum , u8 Copy_u8PriorityLevel)
 {
 
 		NVIC-> IPR [Copy_u8IntReqNum] = Copy_u8PriorityLevel;
@@ -113,7 +113,7 @@ void NVIC_u8SetPriority(u8 Copy_u8IntReqNum , u8 Copy_u8PriorityLevel)
  * Input: Interrupt request number NVIC_IRQx
  * output: Error_s  */
 
-ERROR_STATUS NVIC_u8EnableIRQ (u8 Copy_u8IntReqNum)
+ERROR_STATUS NVIC_u8EnableIRQ (u32 Copy_u8IntReqNum)
 {
 	u8 Local_u8Error = status_Ok;
 
@@ -147,7 +147,7 @@ ERROR_STATUS NVIC_u8EnableIRQ (u8 Copy_u8IntReqNum)
  * Input: Interrupt request number NVIC_IRQx
  * output: Error_s  */
 
-ERROR_STATUS NVIC_u8DisbaleIRQ (u8 Copy_u8IntReqNum)
+ERROR_STATUS NVIC_u8DisbaleIRQ (u32 Copy_u8IntReqNum)
 {
 	u8 Local_u8Error = status_Ok;
 
@@ -177,7 +177,7 @@ ERROR_STATUS NVIC_u8DisbaleIRQ (u8 Copy_u8IntReqNum)
 /*Description : This API shall get active status of interrupt
  * Input: Interrupt request number NVIC_IRQx
  * output: u8 active status zero if not active and larger than 1 if active */
-u8 NVIC_u8IsActive (u8 Copy_u8IntReqNum)
+u8 NVIC_u8IsActive (u32 Copy_u8IntReqNum)
 {
 	u8 u8IsActive_val = 0;
 	if (Copy_u8IntReqNum < 32)
@@ -198,7 +198,7 @@ u8 NVIC_u8IsActive (u8 Copy_u8IntReqNum)
  * Input: Interrupt request number NVIC_IRQx
  * output: u8 priority value */
 
-u8 NVIC_u8GetPriority (u8 Copy_u8IntReqNum)
+u8 NVIC_u8GetPriority (u32 Copy_u8IntReqNum)
 {
 	u8 u8priority_val;
 
@@ -215,7 +215,7 @@ u8 NVIC_u8GetPriority (u8 Copy_u8IntReqNum)
  * Input: Interrupt request number NVIC_IRQx
  * output: u8 ERROR STATUS*/
 
-ERROR_STATUS NVIC_u8SWIntGenerate(u8 Copy_u8IntReqNum)  //NVIC_SetPendingIRQ(3);NVIC->STIR = 3;
+ERROR_STATUS NVIC_u8SWIntGenerate(u32 Copy_u8IntReqNum)  //NVIC_SetPendingIRQ(3);NVIC->STIR = 3;
 {
 	u8 Local_u8Error = status_Ok;
 	if (Copy_u8IntReqNum <32)
@@ -246,7 +246,7 @@ ERROR_STATUS NVIC_u8SWIntGenerate(u8 Copy_u8IntReqNum)  //NVIC_SetPendingIRQ(3);
  * Input: Interrupt request number NVIC_IRQx
  * output: u8 ERROR STATUS*/
 
-ERROR_STATUS NVIC_u8ClearPending (u8 Copy_u8IntReqNum)
+ERROR_STATUS NVIC_u8ClearPending (u32 Copy_u8IntReqNum)
 {
 	u8 Local_u8Error = status_Ok;
 		if (Copy_u8IntReqNum <32)
