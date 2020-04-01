@@ -1,7 +1,7 @@
 /************************************
- * nvic.c							*									*
- * Created on: Mar 14, 2020			*
- *  Author: Esraa Awad				*
+ * nvic.c							              *								
+ * Created on: Mar 14, 2020			    *
+ *  Author: Esraa Awad				      *
  * *********************************/
 #ifndef NVIC_H
 #define NVIC_H
@@ -9,14 +9,14 @@
 
 
 /**** Configuration of numbers of sub group bits for stm23***
- * options:													*
- *			1-NVIC_PRIGROUP								    *
- * 			2-NVIC_NonSubPriority							*
- * 			3-NVIC_OneSubthreeGroup							*
- * 			4-NVIC_TwoSubTwoGroup							*
- * 			5-NVIC_ThreeSubOneGroup							*
- * 			6-NVIC_NonGroupPriority							*
- *															*
+ * options:													                        *
+ *			1-NVIC_PRIGROUP								                      *
+ * 			2-NVIC_NonSubPriority							                  *
+ * 			3-NVIC_OneSubthreeGroup							                *
+ * 			4-NVIC_TwoSubTwoGroup							                  *
+ * 			5-NVIC_ThreeSubOneGroup							                *
+ * 			6-NVIC_NonGroupPriority							                *
+ *															                            *
  ************************************************************/
 
 #define 	NVIC_PRIGROUP				NVIC_TwoSubTwoGroup

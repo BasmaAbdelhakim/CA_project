@@ -1,7 +1,7 @@
 /************************************
- * nvic.c							*									*
- * Created on: Mar 14, 2020			*
- *  Author: Esraa Awad				*
+ * nvic.c							              *									
+ * Created on: Mar 14, 2020			    *
+ * Author: Esraa Awad				        *
  * *********************************/
 
 #include "STD_TYPES.h"
@@ -9,7 +9,7 @@
 
 
 /**** MASKS  of numbers of sub group and preemption bits for stm23***/
-#define     NVIC_PRIGROUP_CLRMask	    0xfffff8ff
+#define   NVIC_PRIGROUP_CLRMask	  0xfffff8ff
 #define  	NVIC_NonSubPriority			0x00000300
 #define 	NVIC_OneSubthreeGroup		0x00000400
 #define 	NVIC_TwoSubTwoGroup			0x00000500
@@ -69,10 +69,10 @@ typedef struct
 	u32 ACTIVE5;
 	u32 ACTIVE6;
 	u32 ACTIVE7;
-	u32 Dummy_arr5[56];  /* (0xE000E320 - 0xE000E3FC)*/
-	u8  IPR[240];        /*Interrupt Priority-Level Registers (0xE000E400-0xE000E4EF) */
-	u32 Dummy_arr6[644]; /* (0xE000E4F3 - 0xE000EEFC ) */
-    u32 STIR;            /*Software Trigger Interrupt Register (0xE000EF00) */
+	u32 Dummy_arr5[56];  
+	u8  IPR[240];       
+	u32 Dummy_arr6[644]; 
+  u32 STIR;            
 
 }NVIC_t;
 
