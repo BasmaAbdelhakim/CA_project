@@ -14,7 +14,7 @@
 #define  SYSTICK_TICK_TIME_MS      2
 
 
-#define  NUMBER_OF_TASKS           3
+#define  NUMBER_OF_TASKS           1
 
 
 

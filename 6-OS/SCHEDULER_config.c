@@ -15,19 +15,20 @@
 
 /********************************************* Global Variables **************************************************/
 
-/* tasks and first delay  may be changed according to the application */
 
-extern Task_t Lcd_Task;
-extern Task_t Debounce_Task;
+
 extern Task_t APP_Task;
 
+extern Task_t Lcd_Task;
+
+extern Task_t Switch_Task;
 
 
 static SysTaskInfo_t SysTasksInfo[]={
-  
-										{&Lcd_Task,0},        //LCD EN 2ms
-										{&Debounce_Task,0},  //DEBOUNCING 4ms
-										{&APP_Task,0},      //APP ?ms
+
+										{&Switch_Task,0},
+										{&Lcd_Task,0},
+										{&APP_Task,0}
 
 									};
 
