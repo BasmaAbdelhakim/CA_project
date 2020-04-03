@@ -10,15 +10,23 @@
 #include "STD_TYPES.h"
 
 #include "RCC_interface.h"
-#include "GPIO.h"
+#include "GPIO_interface.h"
 
-#include "SWITCH.h"
-#include "SWITCH_cfg.h"
+#include "SCHEDULER_interface.h"
+
+#include "SWITCH_interface.h"
+#include "SWITCH_config.h"
+
+
+
+
+
 
 
 u8 switchState[SWITCH_NUM];
 
 switchmap_t * switchMapElement;
+Task_t Switch_Task ={switchTask,4,READY};
 
 /* 
   Description: This function shall initiate the specified switch num by setting its

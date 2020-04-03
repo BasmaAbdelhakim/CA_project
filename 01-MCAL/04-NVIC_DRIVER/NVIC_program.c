@@ -5,7 +5,9 @@
  * *********************************/
 
 #include "STD_TYPES.h"
-#include "nvic.h"
+
+#include "NVIC_interface.h"
+
 
 
 /**** MASKS  of numbers of sub group and preemption bits for stm23***/

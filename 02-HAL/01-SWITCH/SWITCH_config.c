@@ -10,18 +10,22 @@
 #include "STD_TYPES.h"
 
 #include "RCC_interface.h"
-#include "GPIO.h"
+#include "GPIO_interface.h"
 
-#include "SWITCH.h"
-#include "SWITCH_cfg.h"
+#include "SWITCH_interface.h"
+#include "SWITCH_config.h"
+
+
+
+
+
 
 
 /*
   Creating an array of switch struct that holds switches in the system
 */
 const switchmap_t switchMap [SWITCH_NUM] = {
-  {SWITCH_ALARM_PIN,SWITCH_ALARM_PORT,SWITCH_ALARM_PULL_STATE},
-  {SWITCH_INDICATOR_PIN,SWITCH_INDICATOR_PORT,SWITCH_INDICATOR_PULL_STATE}
+  {SWITCH_COUNTER_PIN,SWITCH_COUNTER_PORT,SWITCH_COUNTER_PULL_STATE},
 };
 
 

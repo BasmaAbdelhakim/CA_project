@@ -9,7 +9,9 @@
 
 #include "STD_TYPES.h"
 
-#include "GPIO.h"
+#include "GPIO_interface.h"
+
+
 
 #define MODE_CONFIG_CLEAR 0x0000000F
 #define MODE_CONFIG_SIZE 4
@@ -91,7 +93,7 @@ extern ERROR_STATUS GPIO_initPin(GPIO_t * peri)
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS GPIO_writePin(GPIO_t * peri, u8 value)
+extern ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value)
 {
   
   ERROR_STATUS currentStatus = status_Ok;
@@ -165,21 +167,10 @@ extern ERROR_STATUS GPIO_readPin(GPIO_t * peri, u8 *value)
 {
   ERROR_STATUS status = status_Ok;
   
-  u8 temp;
-  
   GPIO * PORT = (GPIO *) peri->port;
   
-  temp = PORT->IDR & peri->pin;
-  
-  if (temp != 0)
-  {
-    *value = 1;
-  }
-  else
-  {
-    *value = 0;
-  }
-  
+  * value = PORT->IDR & peri->pin;
+    
   return status;
 }
 
@@ -201,20 +192,9 @@ extern ERROR_STATUS GPIO_directReadPin(void * port ,u32 pin, u8 * value)
 {
   ERROR_STATUS status = status_Ok;
   
-  u8 temp;
-  
   GPIO * PORT = (GPIO *) port;
   
-  temp = PORT->IDR & pin;
-  
-  if (temp != 0)
-  {
-    *value = 1;
-  }
-  else
-  {
-    *value = 0;
-  }
+  * value = PORT->IDR & pin;
     
   return status;
 }

@@ -6,10 +6,14 @@
  ************************************/
 
 #include "STD_TYPES.h"
-#include "BIT_MATHS.h"
-#include "GPIO.h"
-#include "nvic.h"
-#include "UART.h"
+
+#include "GPIO_interface.h"
+#include "NVIC_interface.h"
+
+#include "UART_interface.h"
+
+
+
 
 
 
@@ -152,7 +156,7 @@ extern void UART_voidInit (void)
 	UART -> BRR  = BUADRATE_9600;
 
 	/* Setup interrupts */
-
+     #define NVIC_IRQ37  37
 	NVIC_u8EnableIRQ(NVIC_IRQ37);
 
 

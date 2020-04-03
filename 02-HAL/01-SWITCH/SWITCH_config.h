@@ -10,17 +10,13 @@
 #ifndef SWITCH_CFG_H
 #define SWITCH_CFG_H
 
-#define SWITCH_NUM                   2
+#define SWITCH_NUM                     1
 
-#define SWITCH_ALARM                 0
-#define SWITCH_ALARM_PIN             PIN1
-#define SWITCH_ALARM_PORT            PORTA
-#define SWITCH_ALARM_PULL_STATE      PULL_UP
+#define SWITCH_COUNTER                 0
+#define SWITCH_COUNTER_PIN             PIN15
+#define SWITCH_COUNTER_PORT            PORTA
+#define SWITCH_COUNTER_PULL_STATE      PULL_UP
 
 
-#define SWITCH_INDICATOR              1
-#define SWITCH_INDICATOR_PIN          PIN9
-#define SWITCH_INDICATOR_PORT         PORTA
-#define SWITCH_INDICATOR_PULL_STATE   PULL_UP
 
 #endif

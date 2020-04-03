@@ -7,10 +7,14 @@
 
 #include "STD_TYPES.h"
 
+#include  "GPIO_interface.h"
+#include "SCHEDULER_interface.h"
+
 #include "HCLCD_interface.h"
 #include "HCLCD_config.h"
 
-#include  "GPIO.h"
+
+
 
 /***********************************************************************************************
         Definition  of the required GPIO structure to configure GPIO pins of LCD */
@@ -33,7 +37,7 @@ GPIO_t CLCD_PINS[] = { { CLCD_RS, MODE_OUTPUT_SPEED_10,CONFIG_OUTPUT_GENERAL_PUS
 
 /*******************************************(Macros)********************************************/
 #define LCD_PINS                 11U
-#define  IDEL_PROCESS            0U
+#define IDEL_PROCESS             0U
 #define WRITE_STRING_PROCESS     1U
 #define CLEAR_PROCESS            2U
 #define MOVE_CURSOR_PROCESS      3U
@@ -82,6 +86,8 @@ static u8 lenght;
 static u8 word[255];
 static u8 REQUESTED_ROW;
 static u8 REQUESTED_COLUMN;
+
+Task_t Lcd_Task ={HCLCD_task,2,READY};
 
 notify_t WRITE_DONE_NOTIFICATION;
 notify_t CLEAR_DONE_NOTIFICATION;

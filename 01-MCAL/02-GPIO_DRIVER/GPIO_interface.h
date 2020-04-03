@@ -106,7 +106,7 @@ extern ERROR_STATUS GPIO_initPin(GPIO_t * peri);
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS GPIO_writePin(GPIO_t * peri, u8 value);
+extern ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value);
 
 /* 
   Description: This function shall write value on pin 
