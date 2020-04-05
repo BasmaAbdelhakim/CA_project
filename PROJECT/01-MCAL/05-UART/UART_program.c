@@ -1,17 +1,21 @@
+/**
+ * @brief 
+ * @file
+ * 
+ */
+
 /************************************
  * Author: Esraa Awad                *
  * Date: 26/3/2020                   *
- * File: UART.c                      * 
+ * File: Systick.h                   *
  * Target: STM                       *
  ************************************/
 
-#include "../../04-lib/STD_TYPES.h"
-
-#include "../../01-MCAL/02-GPIO/GPIO_interface.h"
-#include "../../01-MCAL/03-NVIC/NVIC_interface.h"
-
-#include "UART_interface.h"
-
+#include "STD_TYPES.h"
+#include "BIT_MATHS.h"
+#include "GPIO.h"
+#include "nvic.h"
+#include "UART.h"
 
 
 
@@ -101,11 +105,6 @@ static appTxNotify_t  appTxNotify;
 
 
 
-
-
-
-
-
 /*
  *
  * Description: This API initialize UART
@@ -120,6 +119,8 @@ static appTxNotify_t  appTxNotify;
  */
 extern void UART_voidInit (void)
 {
+	/*Clear TC Flag*/
+	UART -> SR &= SR_TC_CLR;
 
 	/*Enable usart1*/
 	UART -> CR1 |= CR1_UE;
@@ -142,7 +143,8 @@ extern void UART_voidInit (void)
 
 	GPIO_initPin(&USART1_tx);
 	GPIO_initPin(&USART1_rx);
-
+	/*clear uart pending*/
+	NVIC_u8ClearPending (NVIC_IRQ37);
 
 	/*setup default configurations data length=8 bits
 	 *one stop bit
@@ -166,6 +168,7 @@ extern void UART_voidInit (void)
 
 
 
+
 }
 
 /*
@@ -177,7 +180,7 @@ extern void UART_voidInit (void)
  */
 extern ERROR_STATUS UART_u8Send(u8 * Buffer , u16 Copy_u16Length)
 {
-	 ERROR_STATUS Local_error = status_Ok;
+	ERROR_STATUS Local_error = status_Ok;
 
 	if (Buffer && Copy_u16Length >0)
 	{
@@ -210,7 +213,7 @@ extern ERROR_STATUS UART_u8Send(u8 * Buffer , u16 Copy_u16Length)
 extern ERROR_STATUS UART_u8Recieve(u8* Buffer , u16 Copy_u16Length)
 {
 
-	 ERROR_STATUS Local_error = status_Ok;
+	ERROR_STATUS Local_error = status_Ok;
 	if (Buffer && Copy_u16Length >0)
 	{
 		if (RxBuffer.state == idle)
@@ -304,15 +307,15 @@ extern ERROR_STATUS UART_u8SetTxCbf(Txcbf_t Txcbf)
 extern ERROR_STATUS UART_u8SetRxCbf(Rxcbf_t Rxcbf)
 {
 	ERROR_STATUS Local_error = status_Ok;
-		if (Rxcbf)
-		{
-			appRxNotify = Rxcbf;
-		}
-		else
-		{
-			Local_error = status_NOk;
-		}
-		return (Local_error);
+	if (Rxcbf)
+	{
+		appRxNotify = Rxcbf;
+	}
+	else
+	{
+		Local_error = status_NOk;
+	}
+	return (Local_error);
 
 
 }
@@ -324,7 +327,7 @@ void USART1_IRQHandler (void)
 	if ((UART->SR & SR_TC) && (TxBuffer.data) )
 	{
 		/* Clear TC Bit */
-	
+
 		UART -> SR &= SR_TC_CLR;
 
 		if (TxBuffer.position != TxBuffer.size)
@@ -343,7 +346,7 @@ void USART1_IRQHandler (void)
 		}
 	}
 
-	 if (UART->SR & SR_RXNE)
+	if (UART->SR & SR_RXNE)
 	{
 		/*  Clear RXNE Bit */
 		UART -> SR &= SR_RXNE_CLR;
