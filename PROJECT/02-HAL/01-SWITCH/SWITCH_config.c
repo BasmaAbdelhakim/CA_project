@@ -1,0 +1,45 @@
+/************************************************/
+/* Author: Alzahraa Elsallakh                   */
+/* Version: V01                                 */
+/* Date: 07 Feb 2020                            */
+/* Layer: HAL                                   */
+/* Component: SWITCH                            */
+/* File Name: SWITCH_cfg.c                      */
+/************************************************/
+
+#include "../../04-lib/STD_TYPES.h"
+
+#include "../../01-MCAL/01-RCC/RCC_interface.h"
+#include "../../01-MCAL/02-GPIO/GPIO_interface.h"
+
+#include "SWITCH_interface.h"
+#include "SWITCH_config.h"
+
+
+
+
+
+
+
+/*
+  Creating an array of switch struct that holds switches in the system
+*/
+const switchmap_t switchMap [SWITCH_NUM] = {
+  {SWITCH_1_PIN,SWITCH_1_PORT,SWITCH_1_PULL_STATE},
+};
+
+
+/* 
+  Description: This function shall return an element of switch from switchMap array
+  
+  Input: 
+        1- switchNum -> holds the index of the switch in the switch array 
+  
+  Output: Address of switch struct that maps the switchNum 
+
+ */
+
+extern switchmap_t * getSwitchMap (u32 switchNum)
+{
+  return (switchmap_t *)&switchMap[switchNum];
+}

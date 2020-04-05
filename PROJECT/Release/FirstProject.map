@@ -1,0 +1,1239 @@
+Archive member included to satisfy reference by file (symbol)
+
+d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                              ./system/src/newlib/_sbrk.o (__errno)
+d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                              d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o) (_impure_ptr)
+
+Allocating common symbols
+Common symbol       size              file
+
+WRITE_DONE_NOTIFICATION
+                    0x4               ./02-HAL/02-HCLCD/HCLCD_program.o
+errno               0x4               ./system/src/newlib/_syscalls.o
+switchState         0x1               ./02-HAL/01-SWITCH/SWITCH_program.o
+SENT_DATA           0xff              ./03-APP/main.o
+switchMapElement    0x4               ./02-HAL/01-SWITCH/SWITCH_program.o
+CLEAR_DONE_NOTIFICATION
+                    0x4               ./02-HAL/02-HCLCD/HCLCD_program.o
+RECEVIED_DATA       0xff              ./03-APP/main.o
+MOVE_CURSOR_DONE_NOTIFICATION
+                    0x4               ./02-HAL/02-HCLCD/HCLCD_program.o
+RxBuffer            0x10              ./01-MCAL/05-UART/UART_program.o
+TxBuffer            0x10              ./01-MCAL/05-UART/UART_program.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 ./system/src/stm32f1-stdperiph/misc.o
+ .data          0x00000000        0x0 ./system/src/stm32f1-stdperiph/misc.o
+ .bss           0x00000000        0x0 ./system/src/stm32f1-stdperiph/misc.o
+ .text.NVIC_PriorityGroupConfig
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/misc.o
+ .text.NVIC_Init
+                0x00000000       0x6c ./system/src/stm32f1-stdperiph/misc.o
+ .text.NVIC_SetVectorTable
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/misc.o
+ .text.NVIC_SystemLPConfig
+                0x00000000       0x18 ./system/src/stm32f1-stdperiph/misc.o
+ .text.SysTick_CLKSourceConfig
+                0x00000000       0x18 ./system/src/stm32f1-stdperiph/misc.o
+ .debug_info    0x00000000      0x53d ./system/src/stm32f1-stdperiph/misc.o
+ .debug_abbrev  0x00000000      0x158 ./system/src/stm32f1-stdperiph/misc.o
+ .debug_loc     0x00000000      0x161 ./system/src/stm32f1-stdperiph/misc.o
+ .debug_aranges
+                0x00000000       0x40 ./system/src/stm32f1-stdperiph/misc.o
+ .debug_ranges  0x00000000       0x30 ./system/src/stm32f1-stdperiph/misc.o
+ .debug_line    0x00000000      0x19a ./system/src/stm32f1-stdperiph/misc.o
+ .debug_str     0x00000000      0x42b ./system/src/stm32f1-stdperiph/misc.o
+ .comment       0x00000000       0x6f ./system/src/stm32f1-stdperiph/misc.o
+ .debug_frame   0x00000000       0x68 ./system/src/stm32f1-stdperiph/misc.o
+ .ARM.attributes
+                0x00000000       0x33 ./system/src/stm32f1-stdperiph/misc.o
+ .text          0x00000000        0x0 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .data          0x00000000        0x0 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .bss           0x00000000        0x0 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_DeInit
+                0x00000000       0xb8 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_AFIODeInit
+                0x00000000       0x16 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_Init
+                0x00000000       0xa4 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_StructInit
+                0x00000000       0x10 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_ReadInputDataBit
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_ReadInputData
+                0x00000000        0x6 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_ReadOutputDataBit
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_ReadOutputData
+                0x00000000        0x6 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_SetBits
+                0x00000000        0x4 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_ResetBits
+                0x00000000        0x4 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_WriteBit
+                0x00000000        0xa ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_Write
+                0x00000000        0x4 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_PinLockConfig
+                0x00000000       0x10 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_EventOutputConfig
+                0x00000000       0x1c ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_EventOutputCmd
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_PinRemapConfig
+                0x00000000       0x60 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_EXTILineConfig
+                0x00000000       0x2a ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text.GPIO_ETH_MediaInterfaceConfig
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_info    0x00000000      0x7c7 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_abbrev  0x00000000      0x200 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_loc     0x00000000      0x4ed ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_aranges
+                0x00000000       0xa8 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_ranges  0x00000000       0x98 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_line    0x00000000      0x306 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_str     0x00000000      0x592 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .comment       0x00000000       0x6f ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_frame   0x00000000      0x170 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .ARM.attributes
+                0x00000000       0x33 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .text          0x00000000        0x0 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .data          0x00000000        0x0 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .bss           0x00000000        0x0 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_DeInit
+                0x00000000       0x40 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_HSEConfig
+                0x00000000       0x38 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_AdjustHSICalibrationValue
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_HSICmd
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_PLLConfig
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_PLLCmd
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_SYSCLKConfig
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_GetSYSCLKSource
+                0x00000000       0x10 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_HCLKConfig
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_PCLK1Config
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_PCLK2Config
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_ITConfig
+                0x00000000       0x18 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_USBCLKConfig
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_ADCCLKConfig
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_LSEConfig
+                0x00000000       0x20 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_LSICmd
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_RTCCLKConfig
+                0x00000000       0x10 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_RTCCLKCmd
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_GetClocksFreq
+                0x00000000       0x88 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_AHBPeriphClockCmd
+                0x00000000       0x18 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_APB2PeriphClockCmd
+                0x00000000       0x18 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_APB1PeriphClockCmd
+                0x00000000       0x18 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_APB2PeriphResetCmd
+                0x00000000       0x18 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_APB1PeriphResetCmd
+                0x00000000       0x18 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_BackupResetCmd
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_ClockSecuritySystemCmd
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_MCOConfig
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_GetFlagStatus
+                0x00000000       0x28 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_WaitForHSEStartUp
+                0x00000000       0x30 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_ClearFlag
+                0x00000000       0x10 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_GetITStatus
+                0x00000000       0x14 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text.RCC_ClearITPendingBit
+                0x00000000        0xc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .data.ADCPrescTable
+                0x00000000        0x4 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .data.APBAHBPrescTable
+                0x00000000       0x10 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_info    0x00000000      0x8af ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_abbrev  0x00000000      0x1e4 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_loc     0x00000000      0x672 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_aranges
+                0x00000000      0x118 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_ranges  0x00000000      0x108 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_line    0x00000000      0x3dc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_str     0x00000000      0x67c ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .comment       0x00000000       0x6f ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_frame   0x00000000      0x220 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .ARM.attributes
+                0x00000000       0x33 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .text          0x00000000        0x0 ./system/src/newlib/_cxx.o
+ .data          0x00000000        0x0 ./system/src/newlib/_cxx.o
+ .bss           0x00000000        0x0 ./system/src/newlib/_cxx.o
+ .text._ZN9__gnu_cxx27__verbose_terminate_handlerEv
+                0x00000000        0x6 ./system/src/newlib/_cxx.o
+ .text.__cxa_pure_virtual
+                0x00000000        0x6 ./system/src/newlib/_cxx.o
+ .debug_info    0x00000000      0x565 ./system/src/newlib/_cxx.o
+ .debug_abbrev  0x00000000      0x1ba ./system/src/newlib/_cxx.o
+ .debug_aranges
+                0x00000000       0x20 ./system/src/newlib/_cxx.o
+ .debug_ranges  0x00000000       0x10 ./system/src/newlib/_cxx.o
+ .debug_line    0x00000000      0x24b ./system/src/newlib/_cxx.o
+ .debug_str     0x00000000      0x360 ./system/src/newlib/_cxx.o
+ .comment       0x00000000       0x6f ./system/src/newlib/_cxx.o
+ .debug_frame   0x00000000       0x40 ./system/src/newlib/_cxx.o
+ .ARM.attributes
+                0x00000000       0x33 ./system/src/newlib/_cxx.o
+ .text          0x00000000        0x0 ./system/src/newlib/_exit.o
+ .data          0x00000000        0x0 ./system/src/newlib/_exit.o
+ .bss           0x00000000        0x0 ./system/src/newlib/_exit.o
+ .text.abort    0x00000000        0x8 ./system/src/newlib/_exit.o
+ .text          0x00000000        0x0 ./system/src/newlib/_sbrk.o
+ .data          0x00000000        0x0 ./system/src/newlib/_sbrk.o
+ .bss           0x00000000        0x0 ./system/src/newlib/_sbrk.o
+ .text._sbrk    0x00000000       0x40 ./system/src/newlib/_sbrk.o
+ .bss.current_heap_end.3974
+                0x00000000        0x4 ./system/src/newlib/_sbrk.o
+ .debug_info    0x00000000      0x11b ./system/src/newlib/_sbrk.o
+ .debug_abbrev  0x00000000       0xb6 ./system/src/newlib/_sbrk.o
+ .debug_loc     0x00000000       0x92 ./system/src/newlib/_sbrk.o
+ .debug_aranges
+                0x00000000       0x20 ./system/src/newlib/_sbrk.o
+ .debug_ranges  0x00000000       0x10 ./system/src/newlib/_sbrk.o
+ .debug_line    0x00000000       0xca ./system/src/newlib/_sbrk.o
+ .debug_str     0x00000000      0x226 ./system/src/newlib/_sbrk.o
+ .comment       0x00000000       0x6f ./system/src/newlib/_sbrk.o
+ .debug_frame   0x00000000       0x28 ./system/src/newlib/_sbrk.o
+ .ARM.attributes
+                0x00000000       0x33 ./system/src/newlib/_sbrk.o
+ .text          0x00000000        0x0 ./system/src/newlib/_startup.o
+ .data          0x00000000        0x0 ./system/src/newlib/_startup.o
+ .bss           0x00000000        0x0 ./system/src/newlib/_startup.o
+ .text.__initialize_data
+                0x00000000       0x10 ./system/src/newlib/_startup.o
+ .text.__initialize_bss
+                0x00000000        0xe ./system/src/newlib/_startup.o
+ .text.__run_init_array
+                0x00000000       0x48 ./system/src/newlib/_startup.o
+ .text.__run_fini_array
+                0x00000000       0x24 ./system/src/newlib/_startup.o
+ .text          0x00000000        0x0 ./system/src/newlib/_syscalls.o
+ .data          0x00000000        0x0 ./system/src/newlib/_syscalls.o
+ .bss           0x00000000        0x0 ./system/src/newlib/_syscalls.o
+ .text.raise    0x00000000       0x10 ./system/src/newlib/_syscalls.o
+ .text.kill     0x00000000       0x10 ./system/src/newlib/_syscalls.o
+ .bss.__dso_handle
+                0x00000000        0x4 ./system/src/newlib/_syscalls.o
+ COMMON         0x00000000        0x4 ./system/src/newlib/_syscalls.o
+ .text          0x00000000        0x0 ./system/src/newlib/assert.o
+ .data          0x00000000        0x0 ./system/src/newlib/assert.o
+ .bss           0x00000000        0x0 ./system/src/newlib/assert.o
+ .text.__assert_func
+                0x00000000        0x6 ./system/src/newlib/assert.o
+ .debug_info    0x00000000      0x10f ./system/src/newlib/assert.o
+ .debug_abbrev  0x00000000       0xa9 ./system/src/newlib/assert.o
+ .debug_loc     0x00000000       0x84 ./system/src/newlib/assert.o
+ .debug_aranges
+                0x00000000       0x20 ./system/src/newlib/assert.o
+ .debug_ranges  0x00000000       0x10 ./system/src/newlib/assert.o
+ .debug_line    0x00000000       0xdf ./system/src/newlib/assert.o
+ .debug_str     0x00000000      0x20f ./system/src/newlib/assert.o
+ .comment       0x00000000       0x6f ./system/src/newlib/assert.o
+ .debug_frame   0x00000000       0x28 ./system/src/newlib/assert.o
+ .ARM.attributes
+                0x00000000       0x33 ./system/src/newlib/assert.o
+ .text          0x00000000        0x0 ./system/src/diag/Trace.o
+ .data          0x00000000        0x0 ./system/src/diag/Trace.o
+ .bss           0x00000000        0x0 ./system/src/diag/Trace.o
+ .debug_line    0x00000000        0x0 ./system/src/diag/Trace.o
+ .debug_str     0x00000000      0x12c ./system/src/diag/Trace.o
+ .comment       0x00000000       0x6f ./system/src/diag/Trace.o
+ .ARM.attributes
+                0x00000000       0x33 ./system/src/diag/Trace.o
+ .text          0x00000000        0x0 ./system/src/diag/trace_impl.o
+ .data          0x00000000        0x0 ./system/src/diag/trace_impl.o
+ .bss           0x00000000        0x0 ./system/src/diag/trace_impl.o
+ .debug_line    0x00000000        0x0 ./system/src/diag/trace_impl.o
+ .debug_str     0x00000000      0x131 ./system/src/diag/trace_impl.o
+ .comment       0x00000000       0x6f ./system/src/diag/trace_impl.o
+ .ARM.attributes
+                0x00000000       0x33 ./system/src/diag/trace_impl.o
+ .text          0x00000000        0x0 ./system/src/cortexm/_initialize_hardware.o
+ .data          0x00000000        0x0 ./system/src/cortexm/_initialize_hardware.o
+ .bss           0x00000000        0x0 ./system/src/cortexm/_initialize_hardware.o
+ .text          0x00000000        0x0 ./system/src/cortexm/_reset_hardware.o
+ .data          0x00000000        0x0 ./system/src/cortexm/_reset_hardware.o
+ .bss           0x00000000        0x0 ./system/src/cortexm/_reset_hardware.o
+ .text          0x00000000        0x0 ./system/src/cortexm/exception_handlers.o
+ .data          0x00000000        0x0 ./system/src/cortexm/exception_handlers.o
+ .bss           0x00000000        0x0 ./system/src/cortexm/exception_handlers.o
+ .text          0x00000000        0x0 ./system/src/cmsis/system_stm32f10x.o
+ .data          0x00000000        0x0 ./system/src/cmsis/system_stm32f10x.o
+ .bss           0x00000000        0x0 ./system/src/cmsis/system_stm32f10x.o
+ .text          0x00000000        0x0 ./system/src/cmsis/vectors_stm32f10x.o
+ .data          0x00000000        0x0 ./system/src/cmsis/vectors_stm32f10x.o
+ .bss           0x00000000        0x0 ./system/src/cmsis/vectors_stm32f10x.o
+ .text          0x00000000        0x0 ./05-OS/SCHEDULER_config.o
+ .data          0x00000000        0x0 ./05-OS/SCHEDULER_config.o
+ .bss           0x00000000        0x0 ./05-OS/SCHEDULER_config.o
+ .text          0x00000000        0x0 ./05-OS/SCHEDULER_program.o
+ .data          0x00000000        0x0 ./05-OS/SCHEDULER_program.o
+ .bss           0x00000000        0x0 ./05-OS/SCHEDULER_program.o
+ .text          0x00000000        0x0 ./03-APP/main.o
+ .data          0x00000000        0x0 ./03-APP/main.o
+ .bss           0x00000000        0x0 ./03-APP/main.o
+ COMMON         0x00000000      0x1fe ./03-APP/main.o
+ .text          0x00000000        0x0 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .data          0x00000000        0x0 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss           0x00000000        0x0 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .text.HCLCD_writeString
+                0x00000000       0x38 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .text.HCLCD_writeDoneApp
+                0x00000000       0x10 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .text.HCLCD_clear
+                0x00000000       0x18 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .text.HCLCD_clearDoneApp
+                0x00000000       0x10 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .text.HCLCD_moveCursorLocation
+                0x00000000       0x28 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .text.HCLCD_moveCursorDoneApp
+                0x00000000       0x10 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .text          0x00000000        0x0 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .data          0x00000000        0x0 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .bss           0x00000000        0x0 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .text          0x00000000        0x0 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .data          0x00000000        0x0 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .bss           0x00000000        0x0 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .text.Switch_GetSwitchState
+                0x00000000       0x26 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .text          0x00000000        0x0 ./01-MCAL/05-UART/UART_program.o
+ .data          0x00000000        0x0 ./01-MCAL/05-UART/UART_program.o
+ .bss           0x00000000        0x0 ./01-MCAL/05-UART/UART_program.o
+ .text.UART_u8Send
+                0x00000000       0x34 ./01-MCAL/05-UART/UART_program.o
+ .text.UART_u8Recieve
+                0x00000000       0x24 ./01-MCAL/05-UART/UART_program.o
+ .text.UART_voidConfigure
+                0x00000000       0x50 ./01-MCAL/05-UART/UART_program.o
+ .text.UART_u8SetTxCbf
+                0x00000000       0x10 ./01-MCAL/05-UART/UART_program.o
+ .text.UART_u8SetRxCbf
+                0x00000000       0x10 ./01-MCAL/05-UART/UART_program.o
+ .data.UART2    0x00000000        0x4 ./01-MCAL/05-UART/UART_program.o
+ .data.UART3    0x00000000        0x4 ./01-MCAL/05-UART/UART_program.o
+ .data.UART4    0x00000000        0x4 ./01-MCAL/05-UART/UART_program.o
+ .data.UART5    0x00000000        0x4 ./01-MCAL/05-UART/UART_program.o
+ .text          0x00000000        0x0 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .data          0x00000000        0x0 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .bss           0x00000000        0x0 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .text.SYSTICK_Stop
+                0x00000000       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .rodata.SYSTICK
+                0x00000000        0x4 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .text          0x00000000        0x0 ./01-MCAL/03-NVIC/NVIC_program.o
+ .data          0x00000000        0x0 ./01-MCAL/03-NVIC/NVIC_program.o
+ .bss           0x00000000        0x0 ./01-MCAL/03-NVIC/NVIC_program.o
+ .text.NVIC_voidInitPriority
+                0x00000000       0x18 ./01-MCAL/03-NVIC/NVIC_program.o
+ .text.NVIC_u8SetPriority
+                0x00000000       0x10 ./01-MCAL/03-NVIC/NVIC_program.o
+ .text.NVIC_u8DisbaleIRQ
+                0x00000000       0x2c ./01-MCAL/03-NVIC/NVIC_program.o
+ .text.NVIC_u8IsActive
+                0x00000000       0x28 ./01-MCAL/03-NVIC/NVIC_program.o
+ .text.NVIC_u8GetPriority
+                0x00000000       0x10 ./01-MCAL/03-NVIC/NVIC_program.o
+ .text.NVIC_u8SWIntGenerate
+                0x00000000       0x2c ./01-MCAL/03-NVIC/NVIC_program.o
+ .text.NVIC_u8ClearPending
+                0x00000000       0x2c ./01-MCAL/03-NVIC/NVIC_program.o
+ .text          0x00000000        0x0 ./01-MCAL/02-GPIO/GPIO_program.o
+ .data          0x00000000        0x0 ./01-MCAL/02-GPIO/GPIO_program.o
+ .bss           0x00000000        0x0 ./01-MCAL/02-GPIO/GPIO_program.o
+ .text.GPIO_readPin
+                0x00000000        0xe ./01-MCAL/02-GPIO/GPIO_program.o
+ .text          0x00000000        0x0 ./01-MCAL/01-RCC/RCC_program.o
+ .data          0x00000000        0x0 ./01-MCAL/01-RCC/RCC_program.o
+ .bss           0x00000000        0x0 ./01-MCAL/01-RCC/RCC_program.o
+ .text.RCC_CLK_Control
+                0x00000000       0x28 ./01-MCAL/01-RCC/RCC_program.o
+ .text.RCC_CLK_Select
+                0x00000000       0x40 ./01-MCAL/01-RCC/RCC_program.o
+ .text.RCC_CLK_config
+                0x00000000       0x54 ./01-MCAL/01-RCC/RCC_program.o
+ .text.RCC_GetSystemClock
+                0x00000000       0xf8 ./01-MCAL/01-RCC/RCC_program.o
+ .bss.SYSTEM_cLK
+                0x00000000        0x4 ./01-MCAL/01-RCC/RCC_program.o
+ .bss.PLL_MULT_FACTOR
+                0x00000000        0x4 ./01-MCAL/01-RCC/RCC_program.o
+ .bss.PLL_CLOCK_SRC
+                0x00000000        0x4 ./01-MCAL/01-RCC/RCC_program.o
+ .text          0x00000000        0x0 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .data          0x00000000        0x0 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .text.__errno  0x00000000        0xc d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00000000       0x20 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .ARM.attributes
+                0x00000000       0x2d d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data.impure_data
+                0x00000000       0x60 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x00000000       0x2d d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x00005000         xrw
+CCMRAM           0x00000000         0x00000000         xrw
+FLASH            0x08000000         0x00010000         xr
+FLASHB1          0x00000000         0x00000000         xr
+EXTMEMB0         0x00000000         0x00000000         xr
+EXTMEMB1         0x00000000         0x00000000         xr
+EXTMEMB2         0x00000000         0x00000000         xr
+EXTMEMB3         0x00000000         0x00000000         xr
+MEMORY_ARRAY     0x00000000         0x00000000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./system/src/stm32f1-stdperiph/misc.o
+LOAD ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+LOAD ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+LOAD ./system/src/newlib/_cxx.o
+LOAD ./system/src/newlib/_exit.o
+LOAD ./system/src/newlib/_sbrk.o
+LOAD ./system/src/newlib/_startup.o
+LOAD ./system/src/newlib/_syscalls.o
+LOAD ./system/src/newlib/assert.o
+LOAD ./system/src/diag/Trace.o
+LOAD ./system/src/diag/trace_impl.o
+LOAD ./system/src/cortexm/_initialize_hardware.o
+LOAD ./system/src/cortexm/_reset_hardware.o
+LOAD ./system/src/cortexm/exception_handlers.o
+LOAD ./system/src/cmsis/system_stm32f10x.o
+LOAD ./system/src/cmsis/vectors_stm32f10x.o
+LOAD ./05-OS/SCHEDULER_config.o
+LOAD ./05-OS/SCHEDULER_program.o
+LOAD ./03-APP/main.o
+LOAD ./02-HAL/02-HCLCD/HCLCD_program.o
+LOAD ./02-HAL/01-SWITCH/SWITCH_config.o
+LOAD ./02-HAL/01-SWITCH/SWITCH_program.o
+LOAD ./01-MCAL/05-UART/UART_program.o
+LOAD ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+LOAD ./01-MCAL/03-NVIC/NVIC_program.o
+LOAD ./01-MCAL/02-GPIO/GPIO_program.o
+LOAD ./01-MCAL/01-RCC/RCC_program.o
+LOAD d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libstdc++_nano.a
+LOAD d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libm.a
+START GROUP
+LOAD d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a
+LOAD d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+START GROUP
+LOAD d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD d:/iti courses/armarcitecture/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+                0x20005000                __stack = (ORIGIN (RAM) + LENGTH (RAM))
+                0x20005000                _estack = __stack
+                0x00000400                __Main_Stack_Size = 0x400
+                [!provide]                PROVIDE (_Main_Stack_Size, __Main_Stack_Size)
+                0x20004c00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
+                [!provide]                PROVIDE (_Main_Stack_Limit, __Main_Stack_Limit)
+                0x00000100                _Minimum_Stack_Size = 0x100
+                0x2000027c                PROVIDE (_Heap_Begin, _end_noinit)
+                0x20004c00                PROVIDE (_Heap_Limit, (__stack - __Main_Stack_Size))
+
+.isr_vector     0x08000000      0x232
+ FILL mask 0xff
+                0x08000000                __vectors_start = ABSOLUTE (.)
+                0x08000000                __vectors_start__ = ABSOLUTE (.)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x10c ./system/src/cmsis/vectors_stm32f10x.o
+                0x08000000                __isr_vectors
+ *(.cfmconfig)
+ *(.after_vectors .after_vectors.*)
+ .after_vectors
+                0x0800010c       0xc0 ./system/src/newlib/_startup.o
+                0x0800010c                _start
+ .after_vectors
+                0x080001cc       0x64 ./system/src/cortexm/exception_handlers.o
+                0x080001cc                Reset_Handler
+                0x080001d0                NMI_Handler
+                0x080001d2                HardFault_Handler
+                0x080001e6                HardFault_Handler_C
+                0x080001e8                MemManage_Handler
+                0x080001ea                BusFault_Handler
+                0x080001fe                BusFault_Handler_C
+                0x08000200                UsageFault_Handler
+                0x08000214                UsageFault_Handler_C
+                0x08000216                SVC_Handler
+                0x08000218                DebugMon_Handler
+                0x0800021a                PendSV_Handler
+ .after_vectors
+                0x08000230        0x2 ./system/src/cmsis/vectors_stm32f10x.o
+                0x08000230                EXTI2_IRQHandler
+                0x08000230                TIM8_TRG_COM_IRQHandler
+                0x08000230                TIM8_CC_IRQHandler
+                0x08000230                TIM1_CC_IRQHandler
+                0x08000230                TIM6_IRQHandler
+                0x08000230                PVD_IRQHandler
+                0x08000230                SDIO_IRQHandler
+                0x08000230                CAN2_RX1_IRQHandler
+                0x08000230                EXTI3_IRQHandler
+                0x08000230                TIM8_TRG_COM_TIM14_IRQHandler
+                0x08000230                TIM1_UP_TIM10_IRQHandler
+                0x08000230                TIM8_UP_TIM13_IRQHandler
+                0x08000230                EXTI0_IRQHandler
+                0x08000230                I2C2_EV_IRQHandler
+                0x08000230                CAN1_RX0_IRQHandler
+                0x08000230                TIM1_UP_TIM16_IRQHandler
+                0x08000230                CAN2_SCE_IRQHandler
+                0x08000230                ADC1_2_IRQHandler
+                0x08000230                SPI1_IRQHandler
+                0x08000230                TAMPER_IRQHandler
+                0x08000230                TIM6_DAC_IRQHandler
+                0x08000230                TIM1_BRK_TIM9_IRQHandler
+                0x08000230                CAN2_RX0_IRQHandler
+                0x08000230                TIM8_UP_IRQHandler
+                0x08000230                DMA2_Channel2_IRQHandler
+                0x08000230                DMA1_Channel4_IRQHandler
+                0x08000230                USART3_IRQHandler
+                0x08000230                RTC_IRQHandler
+                0x08000230                DMA1_Channel7_IRQHandler
+                0x08000230                CAN1_RX1_IRQHandler
+                0x08000230                UART5_IRQHandler
+                0x08000230                ADC3_IRQHandler
+                0x08000230                TIM4_IRQHandler
+                0x08000230                DMA2_Channel1_IRQHandler
+                0x08000230                I2C1_EV_IRQHandler
+                0x08000230                DMA1_Channel6_IRQHandler
+                0x08000230                UART4_IRQHandler
+                0x08000230                DMA2_Channel4_IRQHandler
+                0x08000230                TIM3_IRQHandler
+                0x08000230                RCC_IRQHandler
+                0x08000230                TIM8_BRK_TIM12_IRQHandler
+                0x08000230                TIM1_TRG_COM_IRQHandler
+                0x08000230                DMA1_Channel1_IRQHandler
+                0x08000230                Default_Handler
+                0x08000230                CEC_IRQHandler
+                0x08000230                EXTI15_10_IRQHandler
+                0x08000230                TIM14_IRQHandler
+                0x08000230                TIM13_IRQHandler
+                0x08000230                TIM12_IRQHandler
+                0x08000230                TIM7_IRQHandler
+                0x08000230                CAN2_TX_IRQHandler
+                0x08000230                TIM5_IRQHandler
+                0x08000230                EXTI9_5_IRQHandler
+                0x08000230                ETH_WKUP_IRQHandler
+                0x08000230                SPI2_IRQHandler
+                0x08000230                CAN1_TX_IRQHandler
+                0x08000230                DMA2_Channel5_IRQHandler
+                0x08000230                DMA1_Channel5_IRQHandler
+                0x08000230                EXTI4_IRQHandler
+                0x08000230                USB_LP_CAN1_RX0_IRQHandler
+                0x08000230                TIM1_TRG_COM_TIM17_IRQHandler
+                0x08000230                USB_HP_CAN1_TX_IRQHandler
+                0x08000230                DMA1_Channel3_IRQHandler
+                0x08000230                FSMC_IRQHandler
+                0x08000230                ETH_IRQHandler
+                0x08000230                TIM1_UP_IRQHandler
+                0x08000230                WWDG_IRQHandler
+                0x08000230                TIM2_IRQHandler
+                0x08000230                OTG_FS_WKUP_IRQHandler
+                0x08000230                TIM1_TRG_COM_TIM11_IRQHandler
+                0x08000230                TIM1_BRK_IRQHandler
+                0x08000230                EXTI1_IRQHandler
+                0x08000230                RTCAlarm_IRQHandler
+                0x08000230                DMA2_Channel4_5_IRQHandler
+                0x08000230                USART2_IRQHandler
+                0x08000230                I2C2_ER_IRQHandler
+                0x08000230                DMA1_Channel2_IRQHandler
+                0x08000230                TIM8_BRK_IRQHandler
+                0x08000230                CAN1_SCE_IRQHandler
+                0x08000230                FLASH_IRQHandler
+                0x08000230                OTG_FS_IRQHandler
+                0x08000230                SPI3_IRQHandler
+                0x08000230                I2C1_ER_IRQHandler
+                0x08000230                USBWakeUp_IRQHandler
+                0x08000230                DMA2_Channel3_IRQHandler
+                0x08000230                TIM1_BRK_TIM15_IRQHandler
+
+.inits          0x08000234       0x28
+                0x08000234                __data_regions_array_start = .
+                0x08000234        0x4 LONG 0x8000b94 LOADADDR (.data)
+                0x08000238        0x4 LONG 0x20000000 ADDR (.data)
+                0x0800023c        0x4 LONG 0x20000114 (ADDR (.data) + SIZEOF (.data))
+                0x08000240        0x4 LONG 0x8000b94 LOADADDR (.data_CCMRAM)
+                0x08000244        0x4 LONG 0x0 ADDR (.data_CCMRAM)
+                0x08000248        0x4 LONG 0x0 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
+                0x0800024c                __data_regions_array_end = .
+                0x0800024c                __bss_regions_array_start = .
+                0x0800024c        0x4 LONG 0x20000114 ADDR (.bss)
+                0x08000250        0x4 LONG 0x2000027c (ADDR (.bss) + SIZEOF (.bss))
+                0x08000254        0x4 LONG 0x0 ADDR (.bss_CCMRAM)
+                0x08000258        0x4 LONG 0x0 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
+                0x0800025c                __bss_regions_array_end = .
+ *(.init)
+ *(.fini)
+                0x0800025c                . = ALIGN (0x4)
+                0x0800025c                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array_sysinit .preinit_array_sysinit.*)
+ *(.preinit_array_platform .preinit_array_platform.*)
+ *(.preinit_array .preinit_array.*)
+                0x0800025c                PROVIDE (__preinit_array_end, .)
+                0x0800025c                . = ALIGN (0x4)
+                0x0800025c                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array)
+                0x0800025c                PROVIDE (__init_array_end, .)
+                0x0800025c                . = ALIGN (0x4)
+                0x0800025c                PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*))
+ *(.fini_array)
+                0x0800025c                PROVIDE (__fini_array_end, .)
+
+.flashtext
+ *(.flashtext .flashtext.*)
+
+.text           0x0800025c      0x938
+ *(.text .text.*)
+ .text._exit    0x0800025c        0x6 ./system/src/newlib/_exit.o
+                0x0800025c                _exit
+ *fill*         0x08000262        0x2 
+ .text.__initialize_args
+                0x08000264       0x10 ./system/src/newlib/_syscalls.o
+                0x08000264                __initialize_args
+ .text.__initialize_hardware_early
+                0x08000274       0x18 ./system/src/cortexm/_initialize_hardware.o
+                0x08000274                __initialize_hardware_early
+ .text.__initialize_hardware
+                0x0800028c        0x4 ./system/src/cortexm/_initialize_hardware.o
+                0x0800028c                __initialize_hardware
+ .text.__reset_hardware
+                0x08000290       0x24 ./system/src/cortexm/_reset_hardware.o
+                0x08000290                __reset_hardware
+ .text.SystemInit
+                0x080002b4       0xf4 ./system/src/cmsis/system_stm32f10x.o
+                0x080002b4                SystemInit
+ .text.SystemCoreClockUpdate
+                0x080003a8       0x5c ./system/src/cmsis/system_stm32f10x.o
+                0x080003a8                SystemCoreClockUpdate
+ .text.SysTasksInfoFunc
+                0x08000404        0x8 ./05-OS/SCHEDULER_config.o
+                0x08000404                SysTasksInfoFunc
+ .text.OsFlag_Set
+                0x0800040c        0xc ./05-OS/SCHEDULER_program.o
+ .text.SCHEDULER_Init
+                0x08000418       0x40 ./05-OS/SCHEDULER_program.o
+                0x08000418                SCHEDULER_Init
+ .text.SCHEDULER_Start
+                0x08000458       0x44 ./05-OS/SCHEDULER_program.o
+                0x08000458                SCHEDULER_Start
+ .text.Application
+                0x0800049c       0x34 ./03-APP/main.o
+                0x0800049c                Application
+ .text.startup.main
+                0x080004d0       0x32 ./03-APP/main.o
+                0x080004d0                main
+ *fill*         0x08000502        0x2 
+ .text.HCLCD_task
+                0x08000504      0x2dc ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08000504                HCLCD_task
+ .text.HCLCD_init
+                0x080007e0       0x20 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x080007e0                HCLCD_init
+ .text.getSwitchMap
+                0x08000800       0x10 ./02-HAL/01-SWITCH/SWITCH_config.o
+                0x08000800                getSwitchMap
+ .text.switchTask
+                0x08000810       0x64 ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x08000810                switchTask
+ .text.SwitchTask_Init
+                0x08000874       0x38 ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x08000874                SwitchTask_Init
+ .text.SwitchTask_GetSwitchState
+                0x080008ac       0x10 ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x080008ac                SwitchTask_GetSwitchState
+ .text.UART_voidInit
+                0x080008bc       0x80 ./01-MCAL/05-UART/UART_program.o
+                0x080008bc                UART_voidInit
+ .text.USART1_IRQHandler
+                0x0800093c       0x98 ./01-MCAL/05-UART/UART_program.o
+                0x0800093c                USART1_IRQHandler
+ .text.SYSTICK_Init
+                0x080009d4       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x080009d4                SYSTICK_Init
+ .text.SYSTICK_Start
+                0x080009e4       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x080009e4                SYSTICK_Start
+ .text.SYSTICK_SetTimerMS
+                0x080009f4       0x20 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x080009f4                SYSTICK_SetTimerMS
+ .text.SYSTICK_SetCallBack
+                0x08000a14       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x08000a14                SYSTICK_SetCallBack
+ .text.SysTick_Handler
+                0x08000a24       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x08000a24                SysTick_Handler
+ .text.NVIC_u8EnableIRQ
+                0x08000a34       0x2c ./01-MCAL/03-NVIC/NVIC_program.o
+                0x08000a34                NVIC_u8EnableIRQ
+ .text.GPIO_initPin
+                0x08000a60       0x70 ./01-MCAL/02-GPIO/GPIO_program.o
+                0x08000a60                GPIO_initPin
+ .text.GPIO_writePin
+                0x08000ad0       0x1a ./01-MCAL/02-GPIO/GPIO_program.o
+                0x08000ad0                GPIO_writePin
+ .text.GPIO_directWritePin
+                0x08000aea       0x14 ./01-MCAL/02-GPIO/GPIO_program.o
+                0x08000aea                GPIO_directWritePin
+ .text.GPIO_directReadPin
+                0x08000afe        0xa ./01-MCAL/02-GPIO/GPIO_program.o
+                0x08000afe                GPIO_directReadPin
+ .text.RCC_EnablePrephiralClock
+                0x08000b08       0x40 ./01-MCAL/01-RCC/RCC_program.o
+                0x08000b08                RCC_EnablePrephiralClock
+ *(.rodata .rodata.* .constdata .constdata.*)
+ .rodata.CLCD_DATA_PINS
+                0x08000b48       0x20 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .rodata.CLCD_DATA_PORTS
+                0x08000b68       0x20 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .rodata.switchMap
+                0x08000b88        0xc ./02-HAL/01-SWITCH/SWITCH_config.o
+                0x08000b88                switchMap
+ *(vtable)
+ *(.eh_frame*)
+ *(.glue_7)
+ .glue_7        0x08000b94        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x08000b94        0x0 linker stubs
+
+.vfp11_veneer   0x08000b94        0x0
+ .vfp11_veneer  0x08000b94        0x0 linker stubs
+
+.v4_bx          0x08000b94        0x0
+ .v4_bx         0x08000b94        0x0 linker stubs
+
+.iplt           0x08000b94        0x0
+ .iplt          0x08000b94        0x0 ./system/src/stm32f1-stdperiph/misc.o
+
+.rel.dyn        0x08000b94        0x0
+ .rel.iplt      0x08000b94        0x0 ./system/src/stm32f1-stdperiph/misc.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x08000b94                . = ALIGN (0x4)
+                0x08000b94                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x08000b94                __exidx_end = .
+                0x08000b94                . = ALIGN (0x4)
+                0x08000b94                _etext = .
+                0x08000b94                __etext = .
+
+.data_CCMRAM    0x00000000        0x0 load address 0x08000b94
+ FILL mask 0xff
+ *(.data.CCMRAM .data.CCMRAM.*)
+                0x00000000                . = ALIGN (0x4)
+                0x08000b94                _sidata = LOADADDR (.data)
+
+.data           0x20000000      0x114 load address 0x08000b94
+ FILL mask 0xff
+                0x20000000                _sdata = .
+                0x20000000                __data_start__ = .
+ *(.data_begin .data_begin.*)
+ *(.data .data.*)
+ .data.argv.4290
+                0x20000000        0x8 ./system/src/newlib/_syscalls.o
+ .data.AHBPrescTable
+                0x20000008       0x10 ./system/src/cmsis/system_stm32f10x.o
+                0x20000008                AHBPrescTable
+ .data.SystemCoreClock
+                0x20000018        0x4 ./system/src/cmsis/system_stm32f10x.o
+                0x20000018                SystemCoreClock
+ .data.SysTasksInfo
+                0x2000001c       0x18 ./05-OS/SCHEDULER_config.o
+ .data.APP_Task
+                0x20000034        0xc ./03-APP/main.o
+                0x20000034                APP_Task
+ .data.currentInitState.3812
+                0x20000040        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ *fill*         0x20000041        0x3 ff
+ .data.CLCD_PINS
+                0x20000044       0xb0 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x20000044                CLCD_PINS
+ .data.Lcd_Task
+                0x200000f4        0xc ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x200000f4                Lcd_Task
+ .data.Switch_Task
+                0x20000100        0xc ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x20000100                Switch_Task
+ .data.UART     0x2000010c        0x4 ./01-MCAL/05-UART/UART_program.o
+                0x2000010c                UART
+ .data.NVIC     0x20000110        0x4 ./01-MCAL/03-NVIC/NVIC_program.o
+                0x20000110                NVIC
+ *(.data_end .data_end.*)
+                0x20000114                . = ALIGN (0x4)
+                0x20000114                _edata = .
+                0x20000114                __data_end__ = .
+
+.igot.plt       0x20000114        0x0 load address 0x08000ca8
+ .igot.plt      0x20000114        0x0 ./system/src/stm32f1-stdperiph/misc.o
+
+.bss_CCMRAM     0x00000000        0x0
+ *(.bss.CCMRAM .bss.CCMRAM.*)
+
+.bss            0x20000114      0x168
+                0x20000114                __bss_start__ = .
+                0x20000114                _sbss = .
+ *(.bss_begin .bss_begin.*)
+ *(.bss .bss.*)
+ .bss.name.4289
+                0x20000114        0x1 ./system/src/newlib/_syscalls.o
+ *fill*         0x20000115        0x3 
+ .bss.SysTasks  0x20000118       0x10 ./05-OS/SCHEDULER_program.o
+ .bss.OS_Flag   0x20000128        0x1 ./05-OS/SCHEDULER_program.o
+ .bss.switchTransmittedValue.5566
+                0x20000129        0x1 ./03-APP/main.o
+ .bss.counter.5564
+                0x2000012a        0x2 ./03-APP/main.o
+ .bss.REQUESTED_ROW
+                0x2000012c        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.currentChar.3835
+                0x2000012d        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.CLCD_E_value.3838
+                0x2000012e        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.CLCD_E_value.3845
+                0x2000012f        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.lenght    0x20000130        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.word      0x20000131       0xff ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.CLCD_E_value.3858
+                0x20000230        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.CURRENT_PROCESS
+                0x20000231        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.REQUESTED_COLUMN
+                0x20000232        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.CLCD_E_value.3818
+                0x20000233        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.INIT_COMPLETED_FLAG
+                0x20000234        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.counter.3813
+                0x20000235        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.currState.3786
+                0x20000236        0x1 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .bss.counter.3787
+                0x20000237        0x1 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .bss.prevState.3785
+                0x20000238        0x1 ./02-HAL/01-SWITCH/SWITCH_program.o
+ *fill*         0x20000239        0x3 
+ .bss.appTxNotify
+                0x2000023c        0x4 ./01-MCAL/05-UART/UART_program.o
+ .bss.appRxNotify
+                0x20000240        0x4 ./01-MCAL/05-UART/UART_program.o
+ .bss.SYSTICK_CallBack
+                0x20000244        0x4 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ *(COMMON)
+ COMMON         0x20000248        0xc ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x20000248                WRITE_DONE_NOTIFICATION
+                0x2000024c                CLEAR_DONE_NOTIFICATION
+                0x20000250                MOVE_CURSOR_DONE_NOTIFICATION
+ COMMON         0x20000254        0x8 ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x20000254                switchState
+                0x20000258                switchMapElement
+ COMMON         0x2000025c       0x20 ./01-MCAL/05-UART/UART_program.o
+                0x2000025c                RxBuffer
+                0x2000026c                TxBuffer
+ *(.bss_end .bss_end.*)
+                0x2000027c                . = ALIGN (0x4)
+                0x2000027c                __bss_end__ = .
+                0x2000027c                _ebss = .
+
+.noinit_CCMRAM
+ *(.noinit.CCMRAM .noinit.CCMRAM.*)
+
+.noinit         0x2000027c        0x0
+                0x2000027c                _noinit = .
+ *(.noinit .noinit.*)
+                0x2000027c                . = ALIGN (0x4)
+                0x2000027c                _end_noinit = .
+                [!provide]                PROVIDE (end, _end_noinit)
+                [!provide]                PROVIDE (_end, _end_noinit)
+                [!provide]                PROVIDE (__end, _end_noinit)
+                [!provide]                PROVIDE (__end__, _end_noinit)
+
+._check_stack   0x2000027c      0x100
+                0x2000037c                . = (. + _Minimum_Stack_Size)
+ *fill*         0x2000027c      0x100 
+
+.b1text
+ *(.b1text)
+ *(.b1rodata)
+ *(.b1rodata.*)
+
+.eb0text
+ *(.eb0text)
+ *(.eb0rodata)
+ *(.eb0rodata.*)
+
+.eb1text
+ *(.eb1text)
+ *(.eb1rodata)
+ *(.eb1rodata.*)
+
+.eb2text
+ *(.eb2text)
+ *(.eb2rodata)
+ *(.eb2rodata.*)
+
+.eb3text
+ *(.eb3text)
+ *(.eb3rodata)
+ *(.eb3rodata.*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x6e
+ *(.comment)
+ .comment       0x00000000       0x6e ./system/src/newlib/_exit.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f ./system/src/newlib/_startup.o
+ .comment       0x0000006e       0x6f ./system/src/newlib/_syscalls.o
+ .comment       0x0000006e       0x6f ./system/src/cortexm/_initialize_hardware.o
+ .comment       0x0000006e       0x6f ./system/src/cortexm/_reset_hardware.o
+ .comment       0x0000006e       0x6f ./system/src/cortexm/exception_handlers.o
+ .comment       0x0000006e       0x6f ./system/src/cmsis/system_stm32f10x.o
+ .comment       0x0000006e       0x6f ./system/src/cmsis/vectors_stm32f10x.o
+ .comment       0x0000006e       0x6f ./05-OS/SCHEDULER_config.o
+ .comment       0x0000006e       0x6f ./05-OS/SCHEDULER_program.o
+ .comment       0x0000006e       0x6f ./03-APP/main.o
+ .comment       0x0000006e       0x6f ./02-HAL/02-HCLCD/HCLCD_program.o
+ .comment       0x0000006e       0x6f ./02-HAL/01-SWITCH/SWITCH_config.o
+ .comment       0x0000006e       0x6f ./02-HAL/01-SWITCH/SWITCH_program.o
+ .comment       0x0000006e       0x6f ./01-MCAL/05-UART/UART_program.o
+ .comment       0x0000006e       0x6f ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .comment       0x0000006e       0x6f ./01-MCAL/03-NVIC/NVIC_program.o
+ .comment       0x0000006e       0x6f ./01-MCAL/02-GPIO/GPIO_program.o
+ .comment       0x0000006e       0x6f ./01-MCAL/01-RCC/RCC_program.o
+
+.ARM.attributes
+                0x00000000       0x33
+ .ARM.attributes
+                0x00000000       0x33 ./system/src/newlib/_exit.o
+ .ARM.attributes
+                0x00000033       0x33 ./system/src/newlib/_startup.o
+ .ARM.attributes
+                0x00000066       0x33 ./system/src/newlib/_syscalls.o
+ .ARM.attributes
+                0x00000099       0x33 ./system/src/cortexm/_initialize_hardware.o
+ .ARM.attributes
+                0x000000cc       0x33 ./system/src/cortexm/_reset_hardware.o
+ .ARM.attributes
+                0x000000ff       0x33 ./system/src/cortexm/exception_handlers.o
+ .ARM.attributes
+                0x00000132       0x33 ./system/src/cmsis/system_stm32f10x.o
+ .ARM.attributes
+                0x00000165       0x33 ./system/src/cmsis/vectors_stm32f10x.o
+ .ARM.attributes
+                0x00000198       0x33 ./05-OS/SCHEDULER_config.o
+ .ARM.attributes
+                0x000001cb       0x33 ./05-OS/SCHEDULER_program.o
+ .ARM.attributes
+                0x000001fe       0x33 ./03-APP/main.o
+ .ARM.attributes
+                0x00000231       0x33 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .ARM.attributes
+                0x00000264       0x33 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .ARM.attributes
+                0x00000297       0x33 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .ARM.attributes
+                0x000002ca       0x33 ./01-MCAL/05-UART/UART_program.o
+ .ARM.attributes
+                0x000002fd       0x33 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .ARM.attributes
+                0x00000330       0x33 ./01-MCAL/03-NVIC/NVIC_program.o
+ .ARM.attributes
+                0x00000363       0x33 ./01-MCAL/02-GPIO/GPIO_program.o
+ .ARM.attributes
+                0x00000396       0x33 ./01-MCAL/01-RCC/RCC_program.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x440
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 ./system/src/newlib/_exit.o
+ .debug_aranges
+                0x00000028       0x40 ./system/src/newlib/_startup.o
+ .debug_aranges
+                0x00000068       0x30 ./system/src/newlib/_syscalls.o
+ .debug_aranges
+                0x00000098       0x28 ./system/src/cortexm/_initialize_hardware.o
+ .debug_aranges
+                0x000000c0       0x20 ./system/src/cortexm/_reset_hardware.o
+ .debug_aranges
+                0x000000e0       0x80 ./system/src/cortexm/exception_handlers.o
+ .debug_aranges
+                0x00000160       0x28 ./system/src/cmsis/system_stm32f10x.o
+ .debug_aranges
+                0x00000188       0x20 ./system/src/cmsis/vectors_stm32f10x.o
+ .debug_aranges
+                0x000001a8       0x20 ./05-OS/SCHEDULER_config.o
+ .debug_aranges
+                0x000001c8       0x30 ./05-OS/SCHEDULER_program.o
+ .debug_aranges
+                0x000001f8       0x28 ./03-APP/main.o
+ .debug_aranges
+                0x00000220       0x58 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_aranges
+                0x00000278       0x20 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_aranges
+                0x00000298       0x38 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_aranges
+                0x000002d0       0x50 ./01-MCAL/05-UART/UART_program.o
+ .debug_aranges
+                0x00000320       0x48 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_aranges
+                0x00000368       0x58 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_aranges
+                0x000003c0       0x40 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_aranges
+                0x00000400       0x40 ./01-MCAL/01-RCC/RCC_program.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x3a02
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x104 ./system/src/newlib/_exit.o
+ .debug_info    0x00000104      0x3f3 ./system/src/newlib/_startup.o
+ .debug_info    0x000004f7      0x1c3 ./system/src/newlib/_syscalls.o
+ .debug_info    0x000006ba      0x2ad ./system/src/cortexm/_initialize_hardware.o
+ .debug_info    0x00000967      0x2bf ./system/src/cortexm/_reset_hardware.o
+ .debug_info    0x00000c26      0x264 ./system/src/cortexm/exception_handlers.o
+ .debug_info    0x00000e8a      0x49c ./system/src/cmsis/system_stm32f10x.o
+ .debug_info    0x00001326       0xcd ./system/src/cmsis/vectors_stm32f10x.o
+ .debug_info    0x000013f3      0x164 ./05-OS/SCHEDULER_config.o
+ .debug_info    0x00001557      0x291 ./05-OS/SCHEDULER_program.o
+ .debug_info    0x000017e8      0x317 ./03-APP/main.o
+ .debug_info    0x00001aff      0xae0 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_info    0x000025df      0x10b ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_info    0x000026ea      0x3d3 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_info    0x00002abd      0x468 ./01-MCAL/05-UART/UART_program.o
+ .debug_info    0x00002f25      0x1a4 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_info    0x000030c9      0x361 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_info    0x0000342a      0x341 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_info    0x0000376b      0x297 ./01-MCAL/01-RCC/RCC_program.o
+
+.debug_abbrev   0x00000000     0x15c2
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xbb ./system/src/newlib/_exit.o
+ .debug_abbrev  0x000000bb      0x18d ./system/src/newlib/_startup.o
+ .debug_abbrev  0x00000248       0xe9 ./system/src/newlib/_syscalls.o
+ .debug_abbrev  0x00000331       0xf5 ./system/src/cortexm/_initialize_hardware.o
+ .debug_abbrev  0x00000426       0xfc ./system/src/cortexm/_reset_hardware.o
+ .debug_abbrev  0x00000522       0xdc ./system/src/cortexm/exception_handlers.o
+ .debug_abbrev  0x000005fe      0x170 ./system/src/cmsis/system_stm32f10x.o
+ .debug_abbrev  0x0000076e       0x9a ./system/src/cmsis/vectors_stm32f10x.o
+ .debug_abbrev  0x00000808       0xb8 ./05-OS/SCHEDULER_config.o
+ .debug_abbrev  0x000008c0      0x168 ./05-OS/SCHEDULER_program.o
+ .debug_abbrev  0x00000a28      0x154 ./03-APP/main.o
+ .debug_abbrev  0x00000b7c      0x1fe ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_abbrev  0x00000d7a       0xc9 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_abbrev  0x00000e43      0x180 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_abbrev  0x00000fc3      0x1b2 ./01-MCAL/05-UART/UART_program.o
+ .debug_abbrev  0x00001175      0x141 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_abbrev  0x000012b6      0x123 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_abbrev  0x000013d9      0x113 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_abbrev  0x000014ec       0xd6 ./01-MCAL/01-RCC/RCC_program.o
+
+.debug_line     0x00000000     0x171e
+ *(.debug_line)
+ .debug_line    0x00000000      0x14a ./system/src/newlib/_exit.o
+ .debug_line    0x0000014a      0x100 ./system/src/newlib/_startup.o
+ .debug_line    0x0000024a      0x164 ./system/src/newlib/_syscalls.o
+ .debug_line    0x000003ae      0x120 ./system/src/cortexm/_initialize_hardware.o
+ .debug_line    0x000004ce      0x119 ./system/src/cortexm/_reset_hardware.o
+ .debug_line    0x000005e7      0x152 ./system/src/cortexm/exception_handlers.o
+ .debug_line    0x00000739      0x152 ./system/src/cmsis/system_stm32f10x.o
+ .debug_line    0x0000088b       0x58 ./system/src/cmsis/vectors_stm32f10x.o
+ .debug_line    0x000008e3       0x93 ./05-OS/SCHEDULER_config.o
+ .debug_line    0x00000976      0x11a ./05-OS/SCHEDULER_program.o
+ .debug_line    0x00000a90      0x1ba ./03-APP/main.o
+ .debug_line    0x00000c4a      0x223 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_line    0x00000e6d       0x9a ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_line    0x00000f07      0x178 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_line    0x0000107f      0x20b ./01-MCAL/05-UART/UART_program.o
+ .debug_line    0x0000128a       0xe7 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_line    0x00001371      0x109 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_line    0x0000147a      0x118 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_line    0x00001592      0x18c ./01-MCAL/01-RCC/RCC_program.o
+
+.debug_frame    0x00000000      0x748
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x40 ./system/src/newlib/_exit.o
+ .debug_frame   0x00000040       0x80 ./system/src/newlib/_startup.o
+ .debug_frame   0x000000c0       0x50 ./system/src/newlib/_syscalls.o
+ .debug_frame   0x00000110       0x38 ./system/src/cortexm/_initialize_hardware.o
+ .debug_frame   0x00000148       0x20 ./system/src/cortexm/_reset_hardware.o
+ .debug_frame   0x00000168       0xe0 ./system/src/cortexm/exception_handlers.o
+ .debug_frame   0x00000248       0x3c ./system/src/cmsis/system_stm32f10x.o
+ .debug_frame   0x00000284       0x20 ./system/src/cmsis/vectors_stm32f10x.o
+ .debug_frame   0x000002a4       0x20 ./05-OS/SCHEDULER_config.o
+ .debug_frame   0x000002c4       0x50 ./05-OS/SCHEDULER_program.o
+ .debug_frame   0x00000314       0x40 ./03-APP/main.o
+ .debug_frame   0x00000354       0xcc ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_frame   0x00000420       0x20 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_frame   0x00000440       0x78 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_frame   0x000004b8       0xc0 ./01-MCAL/05-UART/UART_program.o
+ .debug_frame   0x00000578       0x70 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_frame   0x000005e8       0x90 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_frame   0x00000678       0x70 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_frame   0x000006e8       0x60 ./01-MCAL/01-RCC/RCC_program.o
+
+.debug_str      0x00000000     0x1265
+ *(.debug_str)
+ .debug_str     0x00000000      0x1c0 ./system/src/newlib/_exit.o
+                                0x1f9 (size before relaxing)
+ .debug_str     0x000001c0      0x173 ./system/src/newlib/_startup.o
+                                0x33e (size before relaxing)
+ .debug_str     0x00000333       0x5c ./system/src/newlib/_syscalls.o
+                                0x22e (size before relaxing)
+ .debug_str     0x0000038f       0xda ./system/src/cortexm/_initialize_hardware.o
+                                0x2b2 (size before relaxing)
+ .debug_str     0x00000469       0x45 ./system/src/cortexm/_reset_hardware.o
+                                0x278 (size before relaxing)
+ .debug_str     0x000004ae      0x11f ./system/src/cortexm/exception_handlers.o
+                                0x2ec (size before relaxing)
+ .debug_str     0x000005cd       0xfe ./system/src/cmsis/system_stm32f10x.o
+                                0x346 (size before relaxing)
+ .debug_str     0x000006cb       0x57 ./system/src/cmsis/vectors_stm32f10x.o
+                                0x1f5 (size before relaxing)
+ .debug_str     0x00000722       0xa9 ./05-OS/SCHEDULER_config.o
+                                0x235 (size before relaxing)
+ .debug_str     0x000007cb       0xed ./05-OS/SCHEDULER_program.o
+                                0x2e0 (size before relaxing)
+ .debug_str     0x000008b8       0xdb ./03-APP/main.o
+                                0x305 (size before relaxing)
+ .debug_str     0x00000993      0x2bc ./02-HAL/02-HCLCD/HCLCD_program.o
+                                0x494 (size before relaxing)
+ .debug_str     0x00000c4f       0x5b ./02-HAL/01-SWITCH/SWITCH_config.o
+                                0x1e5 (size before relaxing)
+ .debug_str     0x00000caa       0xaa ./02-HAL/01-SWITCH/SWITCH_program.o
+                                0x329 (size before relaxing)
+ .debug_str     0x00000d54      0x1c3 ./01-MCAL/05-UART/UART_program.o
+                                0x39b (size before relaxing)
+ .debug_str     0x00000f17       0x73 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                                0x24f (size before relaxing)
+ .debug_str     0x00000f8a      0x17d ./01-MCAL/03-NVIC/NVIC_program.o
+                                0x320 (size before relaxing)
+ .debug_str     0x00001107       0xa5 ./01-MCAL/02-GPIO/GPIO_program.o
+                                0x29c (size before relaxing)
+ .debug_str     0x000011ac       0xb9 ./01-MCAL/01-RCC/RCC_program.o
+                                0x2ad (size before relaxing)
+
+.debug_loc      0x00000000     0x13ff
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x21 ./system/src/newlib/_exit.o
+ .debug_loc     0x00000021      0x234 ./system/src/newlib/_startup.o
+ .debug_loc     0x00000255       0x63 ./system/src/newlib/_syscalls.o
+ .debug_loc     0x000002b8       0x99 ./system/src/cmsis/system_stm32f10x.o
+ .debug_loc     0x00000351       0x6d ./05-OS/SCHEDULER_program.o
+ .debug_loc     0x000003be       0x42 ./03-APP/main.o
+ .debug_loc     0x00000400      0x404 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_loc     0x00000804       0x21 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_loc     0x00000825       0xdd ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_loc     0x00000902      0x1fd ./01-MCAL/05-UART/UART_program.o
+ .debug_loc     0x00000aff       0x61 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_loc     0x00000b60      0x251 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_loc     0x00000db1      0x384 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_loc     0x00001135      0x2ca ./01-MCAL/01-RCC/RCC_program.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+OUTPUT(FirstProject.elf elf32-littlearm)
+
+.debug_ranges   0x00000000      0x390
+ .debug_ranges  0x00000000       0x18 ./system/src/newlib/_exit.o
+ .debug_ranges  0x00000018       0x48 ./system/src/newlib/_startup.o
+ .debug_ranges  0x00000060       0x20 ./system/src/newlib/_syscalls.o
+ .debug_ranges  0x00000080       0x18 ./system/src/cortexm/_initialize_hardware.o
+ .debug_ranges  0x00000098       0x10 ./system/src/cortexm/_reset_hardware.o
+ .debug_ranges  0x000000a8       0x70 ./system/src/cortexm/exception_handlers.o
+ .debug_ranges  0x00000118       0x30 ./system/src/cmsis/system_stm32f10x.o
+ .debug_ranges  0x00000148       0x10 ./system/src/cmsis/vectors_stm32f10x.o
+ .debug_ranges  0x00000158       0x10 ./05-OS/SCHEDULER_config.o
+ .debug_ranges  0x00000168       0x40 ./05-OS/SCHEDULER_program.o
+ .debug_ranges  0x000001a8       0x18 ./03-APP/main.o
+ .debug_ranges  0x000001c0       0x78 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_ranges  0x00000238       0x10 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_ranges  0x00000248       0x28 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_ranges  0x00000270       0x40 ./01-MCAL/05-UART/UART_program.o
+ .debug_ranges  0x000002b0       0x38 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_ranges  0x000002e8       0x48 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_ranges  0x00000330       0x30 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_ranges  0x00000360       0x30 ./01-MCAL/01-RCC/RCC_program.o
