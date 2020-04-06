@@ -335,6 +335,8 @@ extern ERROR_STATUS UART_u8SetRxCbf(Rxcbf_t Rxcbf)
 void USART1_IRQHandler (void)
 {
 
+  /* Clear TC Bit */
+	UART -> SR &= SR_TC_CLR;
 	if ((UART->SR & SR_TC) && (TxBuffer.data) )
 	{
 		/* Clear TC Bit */
