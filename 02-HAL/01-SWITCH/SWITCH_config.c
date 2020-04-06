@@ -22,10 +22,10 @@
 const switchmap_t switchMap [SWITCH_NUM] = {
 		{
 				.switchElementIO = {
-						.pin = SWITCH_COUNTER_PIN,
-						.port = SWITCH_COUNTER_PORT,
+						.pin = SWITCH_1_PIN,
+						.port = SWITCH_1_PORT,
 						.mode = MODE_INPUT,
-						.configuration = SWITCH_COUNTER_PULL_STATE
+						.configuration = SWITCH_1_PULL_STATE
 				}
 		}
 };
