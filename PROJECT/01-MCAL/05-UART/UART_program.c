@@ -1,7 +1,16 @@
+/*
+ * UART_program.c
+ *
+ *  Created on: Apr 5, 2020
+ *      Author: pc
+ */
+
+
+
 /**
- * @brief 
+ * @brief
  * @file
- * 
+ *
  */
 
 /************************************
@@ -12,10 +21,10 @@
  ************************************/
 
 #include "STD_TYPES.h"
-#include "BIT_MATHS.h"
-#include "GPIO.h"
-#include "nvic.h"
-#include "UART.h"
+
+#include "GPIO_interface.h"
+#include "NVIC_interface.h"
+#include "UART_interface.h"
 
 
 
@@ -39,8 +48,8 @@
 #define CR3_RTSE	 0x00000100
 
 
-#define WORD_LENGTH_8 0x00001000  
-#define WORD_LENGTH_9 0x00000000  
+#define WORD_LENGTH_8 0x00001000
+#define WORD_LENGTH_9 0x00000000
 #define STOP_BITS_CLR 0xffffdfff
 #define STOP_BITS_1   0x00000000
 #define STOP_BITS_2   0x00002000
@@ -109,10 +118,10 @@ static appTxNotify_t  appTxNotify;
  *
  * Description: This API initialize UART
  * Input:  1-USART1
-           2-USART2   
-           3-USART3    
-           4-UART4     
-           5-UART5   
+           2-USART2
+           3-USART3
+           4-UART4
+           5-UART5
            u8 Copy_u8UART_Num
  * Output: void
  *
@@ -165,6 +174,8 @@ extern void UART_voidInit (void)
 
 	/*Enable transmitter and receive interrupts */
 	UART -> CR1 |= CR1_TCIE  | CR1_RXNEIE ;
+	/*Clear TC Flag*/
+	UART -> SR &= SR_TC_CLR;
 
 
 
@@ -373,14 +384,4 @@ void USART1_IRQHandler (void)
 
 	}
 }
-
-
-
-
-
-
-
-
-
-
 
