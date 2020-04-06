@@ -15,7 +15,7 @@
 #define SWITCH_COUNTER                 0
 #define SWITCH_COUNTER_PIN             PIN15
 #define SWITCH_COUNTER_PORT            PORTA
-#define SWITCH_COUNTER_PULL_STATE      PULL_UP
+#define SWITCH_COUNTER_PULL_STATE      CONFIG_INPUT_PULL_UP
 
 
 

@@ -17,16 +17,12 @@
 #include "SWITCH_interface.h"
 #include "SWITCH_config.h"
 
-
-
-
-
-
+const Task_t Switch_Task ={switchTask,4,READY};
 
 u8 switchState[SWITCH_NUM];
 
 switchmap_t * switchMapElement;
-Task_t Switch_Task ={switchTask,4,READY};
+
 
 /* 
   Description: This function shall initiate the specified switch num by setting its
@@ -37,13 +33,10 @@ Task_t Switch_Task ={switchTask,4,READY};
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS SwitchTask_Init(u32 switchNum)
+extern ERROR_STATUS Switch_Init(u32 switchNum)
 {
 
 	ERROR_STATUS status = status_Ok;
-
-	/* Creating GPIO element */
-	GPIO_t switchElement;
 
 	/* Creating switch element */
 	switchmap_t * switchMapElement;
@@ -51,24 +44,8 @@ extern ERROR_STATUS SwitchTask_Init(u32 switchNum)
 	/* Getting required switch configurations */
 	switchMapElement = getSwitchMap(switchNum);
 
-	/* Assigning switch element configurations to GPIO element */
-	switchElement.pin = switchMapElement->pin;
-	switchElement.port = switchMapElement->port;
-	switchElement.mode = MODE_INPUT;
-	switchElement.configuration = CONFIG_INPUT_PULL_UP_DOWN ;
-
 	/* Initiating GPIO element */
-	GPIO_initPin(&switchElement);
-
-	/* Setting bit in ODR in case of pull up switch and reseting it in case of pull down switch */
-	if (PULL_UP == switchMapElement->pullState)
-	{
-		GPIO_writePin (&switchElement,PIN_SET);
-	}
-	else if (PULL_DOWN == switchMapElement->pullState)
-	{
-		GPIO_writePin (&switchElement,PIN_RESET);
-	}
+	GPIO_initPin(&switchMapElement->switchElementIO);
 
 	return status;
 }
@@ -95,13 +72,7 @@ extern ERROR_STATUS Switch_GetSwitchState(u32 switchNum, u8 * switchValue)
   switchMapElement = getSwitchMap(switchNum);
 
   /* Reading GPIO value */
-	GPIO_directReadPin(switchMapElement->port,switchMapElement->pin,switchValue);
-
-  /* Toggling switchValue in case of pull up switch */
-  if (PULL_UP == switchMapElement->pullState)
-  {
-    * switchValue = * switchValue ^ 0x01;
-  }
+  GPIO_readPin(&switchMapElement->switchElementIO,switchValue);
 
   return status;
 
@@ -154,14 +125,8 @@ extern void switchTask (void)
 		switchMapElement = getSwitchMap(localSwitchLoop);
 
 		/* Reading GPIO value */
-		GPIO_directReadPin(switchMapElement->port,switchMapElement->pin,&currState);
-
-		/* Toggling switchValue in case of pull up switch */
-		if (PULL_UP == switchMapElement->pullState)
-		{
-			currState = currState ^ 0x01;
-		}
-
+		GPIO_readPin(&switchMapElement->switchElementIO,&currState);
+		
 
 		if (currState == prevState[localSwitchLoop])
 		{

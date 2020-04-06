@@ -20,9 +20,8 @@
 
 typedef struct 
 {
-  u32 pin;
-  void * port;
-  u32 pullState;
+	GPIO_t  switchElementIO;
+
 } switchmap_t;
 
 /* 
@@ -34,7 +33,7 @@ typedef struct
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS SwitchTask_Init(u32 switchNum);
+extern ERROR_STATUS Switch_Init(u32 switchNum);
 
 /*
   Description: This function shall return the specified switch state which can be

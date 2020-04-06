@@ -16,17 +16,20 @@
 #include "SWITCH_config.h"
 
 
-
-
-
-
-
 /*
   Creating an array of switch struct that holds switches in the system
 */
 const switchmap_t switchMap [SWITCH_NUM] = {
-  {SWITCH_COUNTER_PIN,SWITCH_COUNTER_PORT,SWITCH_COUNTER_PULL_STATE},
+		{
+				.switchElementIO = {
+						.pin = SWITCH_COUNTER_PIN,
+						.port = SWITCH_COUNTER_PORT,
+						.mode = MODE_INPUT,
+						.configuration = SWITCH_COUNTER_PULL_STATE
+				}
+		}
 };
+
 
 
 /* 
