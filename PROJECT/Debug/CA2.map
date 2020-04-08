@@ -1416,8 +1416,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./02-HAL/02-HCLCD/HCLCD_program.o
  .data          0x00000000        0x0 ./02-HAL/02-HCLCD/HCLCD_program.o
  .bss           0x00000000        0x0 ./02-HAL/02-HCLCD/HCLCD_program.o
- .text.HCLCD_writeString
-                0x00000000       0x40 ./02-HAL/02-HCLCD/HCLCD_program.o
  .text.HCLCD_writeDoneApp
                 0x00000000       0x14 ./02-HAL/02-HCLCD/HCLCD_program.o
  .text.HCLCD_clear
@@ -1472,10 +1470,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./01-MCAL/05-UART/UART_program.o
  .data          0x00000000        0x0 ./01-MCAL/05-UART/UART_program.o
  .bss           0x00000000        0x0 ./01-MCAL/05-UART/UART_program.o
- .text.UART_u8Send
-                0x00000000       0x40 ./01-MCAL/05-UART/UART_program.o
- .text.UART_u8Recieve
-                0x00000000       0x2c ./01-MCAL/05-UART/UART_program.o
  .text.UART_voidConfigure
                 0x00000000       0x5c ./01-MCAL/05-UART/UART_program.o
  .text.UART_u8SetTxCbf
@@ -1518,8 +1512,6 @@ Discarded input sections
  .text.NVIC_u8GetPriority
                 0x00000000       0x10 ./01-MCAL/03-NVIC/NVIC_program.o
  .text.NVIC_u8SWIntGenerate
-                0x00000000       0x30 ./01-MCAL/03-NVIC/NVIC_program.o
- .text.NVIC_u8ClearPending
                 0x00000000       0x30 ./01-MCAL/03-NVIC/NVIC_program.o
  .debug_macro   0x00000000      0x88c ./01-MCAL/03-NVIC/NVIC_program.o
  .debug_macro   0x00000000       0x22 ./01-MCAL/03-NVIC/NVIC_program.o
@@ -1669,7 +1661,7 @@ END GROUP
                 0x20004c00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
                 [!provide]                PROVIDE (_Main_Stack_Limit, __Main_Stack_Limit)
                 0x00000100                _Minimum_Stack_Size = 0x100
-                0x20000390                PROVIDE (_Heap_Begin, _end_noinit)
+                0x20000394                PROVIDE (_Heap_Begin, _end_noinit)
                 0x20004c00                PROVIDE (_Heap_Limit, (__stack - __Main_Stack_Size))
 
 .isr_vector     0x08000000      0x350
@@ -1789,16 +1781,16 @@ END GROUP
 
 .inits          0x08000350       0x28
                 0x08000350                __data_regions_array_start = .
-                0x08000350        0x4 LONG 0x8001a6c LOADADDR (.data)
+                0x08000350        0x4 LONG 0x8001be8 LOADADDR (.data)
                 0x08000354        0x4 LONG 0x20000000 ADDR (.data)
                 0x08000358        0x4 LONG 0x2000015c (ADDR (.data) + SIZEOF (.data))
-                0x0800035c        0x4 LONG 0x8001a6c LOADADDR (.data_CCMRAM)
+                0x0800035c        0x4 LONG 0x8001be8 LOADADDR (.data_CCMRAM)
                 0x08000360        0x4 LONG 0x0 ADDR (.data_CCMRAM)
                 0x08000364        0x4 LONG 0x0 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x08000368                __data_regions_array_end = .
                 0x08000368                __bss_regions_array_start = .
                 0x08000368        0x4 LONG 0x2000015c ADDR (.bss)
-                0x0800036c        0x4 LONG 0x20000390 (ADDR (.bss) + SIZEOF (.bss))
+                0x0800036c        0x4 LONG 0x20000394 (ADDR (.bss) + SIZEOF (.bss))
                 0x08000370        0x4 LONG 0x0 ADDR (.bss_CCMRAM)
                 0x08000374        0x4 LONG 0x0 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
                 0x08000378                __bss_regions_array_end = .
@@ -1824,7 +1816,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x08000378     0x16f3
+.text           0x08000378     0x186f
  *(.text .text.*)
  .text._exit    0x08000378        0x4 ./system/src/newlib/_exit.o
                 0x08000378                _exit
@@ -1877,193 +1869,206 @@ END GROUP
                 0x08000804       0x20 ./05-OS/SCHEDULER_program.o
                 0x08000804                SCHEDULER_Start
  .text.Application
-                0x08000824       0x50 ./03-APP/APP/APP.o
+                0x08000824       0x9c ./03-APP/APP/APP.o
                 0x08000824                Application
  .text.APP_Init
-                0x08000874       0x2c ./03-APP/APP/APP.o
-                0x08000874                APP_Init
- .text.main     0x080008a0       0x10 ./03-APP/main.o
-                0x080008a0                main
+                0x080008c0       0x40 ./03-APP/APP/APP.o
+                0x080008c0                APP_Init
+ .text.main     0x08000900       0x10 ./03-APP/main.o
+                0x08000900                main
  .text.HCLCD_writeStringProcess
-                0x080008b0       0xb4 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08000910       0xb4 ./02-HAL/02-HCLCD/HCLCD_program.o
  .text.HCLCD_clearProcess
-                0x08000964       0x88 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x080009c4       0x88 ./02-HAL/02-HCLCD/HCLCD_program.o
  .text.HCLCD_moveCursorProcess
-                0x080009ec       0x9c ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08000a4c       0x9c ./02-HAL/02-HCLCD/HCLCD_program.o
  .text.HCLCD_initProcess
-                0x08000a88      0x178 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08000ae8      0x178 ./02-HAL/02-HCLCD/HCLCD_program.o
  .text.HCLCD_task
-                0x08000c00       0x38 ./02-HAL/02-HCLCD/HCLCD_program.o
-                0x08000c00                HCLCD_task
+                0x08000c60       0x38 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08000c60                HCLCD_task
  .text.HCLCD_init
-                0x08000c38       0x28 ./02-HAL/02-HCLCD/HCLCD_program.o
-                0x08000c38                HCLCD_init
+                0x08000c98       0x28 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08000c98                HCLCD_init
+ .text.HCLCD_writeString
+                0x08000cc0       0x40 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08000cc0                HCLCD_writeString
  .text.getSwitchMap
-                0x08000c60       0x10 ./02-HAL/01-SWITCH/SWITCH_config.o
-                0x08000c60                getSwitchMap
+                0x08000d00       0x10 ./02-HAL/01-SWITCH/SWITCH_config.o
+                0x08000d00                getSwitchMap
  .text.switchTask
-                0x08000c70       0x80 ./02-HAL/01-SWITCH/SWITCH_program.o
-                0x08000c70                switchTask
+                0x08000d10       0x80 ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x08000d10                switchTask
  .text.SwitchTask_Init
-                0x08000cf0       0x44 ./02-HAL/01-SWITCH/SWITCH_program.o
-                0x08000cf0                SwitchTask_Init
+                0x08000d90       0x44 ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x08000d90                SwitchTask_Init
  .text.SwitchTask_GetSwitchState
-                0x08000d34       0x10 ./02-HAL/01-SWITCH/SWITCH_program.o
-                0x08000d34                SwitchTask_GetSwitchState
+                0x08000dd4       0x10 ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x08000dd4                SwitchTask_GetSwitchState
  .text.UART_voidInit
-                0x08000d44       0x7c ./01-MCAL/05-UART/UART_program.o
-                0x08000d44                UART_voidInit
+                0x08000de4       0x94 ./01-MCAL/05-UART/UART_program.o
+                0x08000de4                UART_voidInit
+ .text.UART_u8Send
+                0x08000e78       0x40 ./01-MCAL/05-UART/UART_program.o
+                0x08000e78                UART_u8Send
+ .text.UART_u8Recieve
+                0x08000eb8       0x2c ./01-MCAL/05-UART/UART_program.o
+                0x08000eb8                UART_u8Recieve
  .text.USART1_IRQHandler
-                0x08000dc0       0xac ./01-MCAL/05-UART/UART_program.o
-                0x08000dc0                USART1_IRQHandler
+                0x08000ee4       0xd0 ./01-MCAL/05-UART/UART_program.o
+                0x08000ee4                USART1_IRQHandler
  .text.SYSTICK_Init
-                0x08000e6c       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
-                0x08000e6c                SYSTICK_Init
+                0x08000fb4       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x08000fb4                SYSTICK_Init
  .text.SYSTICK_Start
-                0x08000e7c       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
-                0x08000e7c                SYSTICK_Start
+                0x08000fc4       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x08000fc4                SYSTICK_Start
  .text.SYSTICK_SetTimerMS
-                0x08000e8c       0x28 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
-                0x08000e8c                SYSTICK_SetTimerMS
+                0x08000fd4       0x28 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x08000fd4                SYSTICK_SetTimerMS
  .text.SYSTICK_SetCallBack
-                0x08000eb4       0x14 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
-                0x08000eb4                SYSTICK_SetCallBack
+                0x08000ffc       0x14 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x08000ffc                SYSTICK_SetCallBack
  .text.SysTick_Handler
-                0x08000ec8       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
-                0x08000ec8                SysTick_Handler
+                0x08001010       0x10 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x08001010                SysTick_Handler
  .text.NVIC_u8EnableIRQ
-                0x08000ed8       0x30 ./01-MCAL/03-NVIC/NVIC_program.o
-                0x08000ed8                NVIC_u8EnableIRQ
+                0x08001020       0x30 ./01-MCAL/03-NVIC/NVIC_program.o
+                0x08001020                NVIC_u8EnableIRQ
+ .text.NVIC_u8ClearPending
+                0x08001050       0x30 ./01-MCAL/03-NVIC/NVIC_program.o
+                0x08001050                NVIC_u8ClearPending
  .text.GPIO_initPin
-                0x08000f08       0x6c ./01-MCAL/02-GPIO/GPIO_program.o
-                0x08000f08                GPIO_initPin
+                0x08001080       0x6c ./01-MCAL/02-GPIO/GPIO_program.o
+                0x08001080                GPIO_initPin
  .text.GPIO_writePin
-                0x08000f74       0x1c ./01-MCAL/02-GPIO/GPIO_program.o
-                0x08000f74                GPIO_writePin
+                0x080010ec       0x1c ./01-MCAL/02-GPIO/GPIO_program.o
+                0x080010ec                GPIO_writePin
  .text.GPIO_directWritePin
-                0x08000f90       0x18 ./01-MCAL/02-GPIO/GPIO_program.o
-                0x08000f90                GPIO_directWritePin
+                0x08001108       0x18 ./01-MCAL/02-GPIO/GPIO_program.o
+                0x08001108                GPIO_directWritePin
  .text.GPIO_directReadPin
-                0x08000fa8        0xc ./01-MCAL/02-GPIO/GPIO_program.o
-                0x08000fa8                GPIO_directReadPin
+                0x08001120        0xc ./01-MCAL/02-GPIO/GPIO_program.o
+                0x08001120                GPIO_directReadPin
  .text.RCC_EnablePrephiralClock
-                0x08000fb4       0x54 ./01-MCAL/01-RCC/RCC_program.o
-                0x08000fb4                RCC_EnablePrephiralClock
- .text.__errno  0x08001008        0xc d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-errno.o)
-                0x08001008                __errno
+                0x0800112c       0x54 ./01-MCAL/01-RCC/RCC_program.o
+                0x0800112c                RCC_EnablePrephiralClock
+ .text.__errno  0x08001180        0xc d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-errno.o)
+                0x08001180                __errno
  .text._vsnprintf_r
-                0x08001014       0x58 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-vsnprintf.o)
-                0x08001014                _vsniprintf_r
-                0x08001014                _vsnprintf_r
+                0x0800118c       0x58 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x0800118c                _vsniprintf_r
+                0x0800118c                _vsnprintf_r
  .text.vsnprintf
-                0x0800106c       0x1c d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-vsnprintf.o)
-                0x0800106c                vsniprintf
-                0x0800106c                vsnprintf
+                0x080011e4       0x1c d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x080011e4                vsniprintf
+                0x080011e4                vsnprintf
  .text.__ssputs_r
-                0x08001088       0xb4 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x08001088                __ssputs_r
+                0x08001200       0xb4 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08001200                __ssputs_r
  .text._svfprintf_r
-                0x0800113c      0x1ec d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x0800113c                _svfiprintf_r
-                0x0800113c                _svfprintf_r
+                0x080012b4      0x1ec d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x080012b4                _svfiprintf_r
+                0x080012b4                _svfprintf_r
  .text._printf_common
-                0x08001328       0xec d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x08001328                _printf_common
+                0x080014a0       0xec d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x080014a0                _printf_common
  .text._printf_i
-                0x08001414      0x224 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x08001414                _printf_i
- .text.memchr   0x08001638       0x1c d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-memchr-stub.o)
-                0x08001638                memchr
- .text.memcpy   0x08001654       0x16 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-memcpy-stub.o)
-                0x08001654                memcpy
- .text.memmove  0x0800166a       0x32 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-memmove.o)
-                0x0800166a                memmove
- .text._free_r  0x0800169c       0x98 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-freer.o)
-                0x0800169c                _free_r
+                0x0800158c      0x224 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0800158c                _printf_i
+ .text.memchr   0x080017b0       0x1c d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-memchr-stub.o)
+                0x080017b0                memchr
+ .text.memcpy   0x080017cc       0x16 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x080017cc                memcpy
+ .text.memmove  0x080017e2       0x32 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-memmove.o)
+                0x080017e2                memmove
+ .text._free_r  0x08001814       0x98 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-freer.o)
+                0x08001814                _free_r
  .text._malloc_r
-                0x08001734       0xb4 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x08001734                _malloc_r
+                0x080018ac       0xb4 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x080018ac                _malloc_r
  .text._realloc_r
-                0x080017e8       0x4c d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-reallocr.o)
-                0x080017e8                _realloc_r
- .text._sbrk_r  0x08001834       0x20 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-sbrkr.o)
-                0x08001834                _sbrk_r
+                0x08001960       0x4c d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-reallocr.o)
+                0x08001960                _realloc_r
+ .text._sbrk_r  0x080019ac       0x20 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-sbrkr.o)
+                0x080019ac                _sbrk_r
  .text.__malloc_lock
-                0x08001854        0x2 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-mlock.o)
-                0x08001854                __malloc_lock
+                0x080019cc        0x2 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-mlock.o)
+                0x080019cc                __malloc_lock
  .text.__malloc_unlock
-                0x08001856        0x2 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-mlock.o)
-                0x08001856                __malloc_unlock
+                0x080019ce        0x2 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-mlock.o)
+                0x080019ce                __malloc_unlock
  .text._malloc_usable_size_r
-                0x08001858       0x10 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-msizer.o)
-                0x08001858                _malloc_usable_size_r
+                0x080019d0       0x10 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x080019d0                _malloc_usable_size_r
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.dumpExceptionStack.str1.4
-                0x08001868      0x11a ./system/src/cortexm/exception_handlers.o
- *fill*         0x08001982        0x2 
+                0x080019e0      0x11a ./system/src/cortexm/exception_handlers.o
+ *fill*         0x08001afa        0x2 
  .rodata.str1.4
-                0x08001984       0x2a ./system/src/cortexm/exception_handlers.o
- *fill*         0x080019ae        0x2 
+                0x08001afc       0x2a ./system/src/cortexm/exception_handlers.o
+ *fill*         0x08001b26        0x2 
  .rodata.APP_Task
-                0x080019b0        0xc ./03-APP/APP/APP.o
-                0x080019b0                APP_Task
- .rodata.Application.str1.4
-                0x080019bc       0x18 ./03-APP/APP/APP.o
+                0x08001b28        0xc ./03-APP/APP/APP.o
+                0x08001b28                APP_Task
  .rodata.CLCD_DATA_PINS
-                0x080019d4       0x20 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08001b34       0x20 ./02-HAL/02-HCLCD/HCLCD_program.o
  .rodata.CLCD_DATA_PORTS
-                0x080019f4       0x20 ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08001b54       0x20 ./02-HAL/02-HCLCD/HCLCD_program.o
  .rodata.Lcd_Task
-                0x08001a14        0xc ./02-HAL/02-HCLCD/HCLCD_program.o
-                0x08001a14                Lcd_Task
+                0x08001b74        0xc ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x08001b74                Lcd_Task
  .rodata.switchMap
-                0x08001a20        0xc ./02-HAL/01-SWITCH/SWITCH_config.o
-                0x08001a20                switchMap
+                0x08001b80        0xc ./02-HAL/01-SWITCH/SWITCH_config.o
+                0x08001b80                switchMap
  .rodata.Switch_Task
-                0x08001a2c        0xc ./02-HAL/01-SWITCH/SWITCH_program.o
-                0x08001a2c                Switch_Task
+                0x08001b8c        0xc ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x08001b8c                Switch_Task
+ .rodata.USART1_IRQHandler.str1.4
+                0x08001b98       0x1c ./01-MCAL/05-UART/UART_program.o
+                                 0x19 (size before relaxing)
  .rodata._svfprintf_r.str1.1
-                0x08001a38       0x11 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08001bb4       0x11 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x08001a49       0x22 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08001bc5       0x22 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x08001a6b        0x0 linker stubs
+ .glue_7        0x08001be7        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08001a6b        0x0 linker stubs
+ .glue_7t       0x08001be7        0x0 linker stubs
 
-.vfp11_veneer   0x08001a6c        0x0
- .vfp11_veneer  0x08001a6c        0x0 linker stubs
+.vfp11_veneer   0x08001be8        0x0
+ .vfp11_veneer  0x08001be8        0x0 linker stubs
 
-.v4_bx          0x08001a6c        0x0
- .v4_bx         0x08001a6c        0x0 linker stubs
+.v4_bx          0x08001be8        0x0
+ .v4_bx         0x08001be8        0x0 linker stubs
 
-.iplt           0x08001a6c        0x0
- .iplt          0x08001a6c        0x0 ./system/src/newlib/_exit.o
+.iplt           0x08001be8        0x0
+ .iplt          0x08001be8        0x0 ./system/src/newlib/_exit.o
 
-.rel.dyn        0x08001a6c        0x0
- .rel.iplt      0x08001a6c        0x0 ./system/src/newlib/_exit.o
+.rel.dyn        0x08001be8        0x0
+ .rel.iplt      0x08001be8        0x0 ./system/src/newlib/_exit.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08001a6c                . = ALIGN (0x4)
-                0x08001a6c                __exidx_start = .
+                0x08001be8                . = ALIGN (0x4)
+                0x08001be8                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08001a6c                __exidx_end = .
-                0x08001a6c                . = ALIGN (0x4)
-                0x08001a6c                _etext = .
-                0x08001a6c                __etext = .
+                0x08001be8                __exidx_end = .
+                0x08001be8                . = ALIGN (0x4)
+                0x08001be8                _etext = .
+                0x08001be8                __etext = .
 
-.data_CCMRAM    0x00000000        0x0 load address 0x08001a6c
+.data_CCMRAM    0x00000000        0x0 load address 0x08001be8
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x00000000                . = ALIGN (0x4)
-                0x08001a6c                _sidata = LOADADDR (.data)
+                0x08001be8                _sidata = LOADADDR (.data)
 
-.data           0x20000000      0x15c load address 0x08001a6c
+.data           0x20000000      0x15c load address 0x08001be8
  FILL mask 0xff
                 0x20000000                _sdata = .
                 0x20000000                __data_start__ = .
@@ -2101,13 +2106,13 @@ END GROUP
                 0x2000015c                _edata = .
                 0x2000015c                __data_end__ = .
 
-.igot.plt       0x2000015c        0x0 load address 0x08001bc8
+.igot.plt       0x2000015c        0x0 load address 0x08001d44
  .igot.plt      0x2000015c        0x0 ./system/src/newlib/_exit.o
 
 .bss_CCMRAM     0x00000000        0x0
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
-.bss            0x2000015c      0x234
+.bss            0x2000015c      0x238
                 0x2000015c                __bss_start__ = .
                 0x2000015c                _sbss = .
  *(.bss_begin .bss_begin.*)
@@ -2122,95 +2127,97 @@ END GROUP
  .bss.OS_Flag   0x200001e8        0x1 ./05-OS/SCHEDULER_program.o
  *fill*         0x200001e9        0x3 
  .bss.SysTasks  0x200001ec       0x30 ./05-OS/SCHEDULER_program.o
- .bss.currentSwitchState.5551
+ .bss.currentSwitchState.5550
                 0x2000021c        0x1 ./03-APP/APP/APP.o
- .bss.prevSwitchState.5550
+ .bss.prevSwitchState.5549
                 0x2000021d        0x1 ./03-APP/APP/APP.o
  *fill*         0x2000021e        0x2 
- .bss.switch_counter.5548
+ .bss.switch_counter.5547
                 0x20000220        0x4 ./03-APP/APP/APP.o
+ .bss.ticks_counter.5548
+                0x20000224        0x4 ./03-APP/APP/APP.o
  .bss.CLCD_E_value.3753
-                0x20000224        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.CLCD_E_value.3773
-                0x20000225        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.CLCD_E_value.3780
-                0x20000226        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.CLCD_E_value.3793
-                0x20000227        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.CURRENT_PROCESS
                 0x20000228        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.INIT_COMPLETED_FLAG
+ .bss.CLCD_E_value.3773
                 0x20000229        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.REQUESTED_COLUMN
+ .bss.CLCD_E_value.3780
                 0x2000022a        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.REQUESTED_ROW
+ .bss.CLCD_E_value.3793
                 0x2000022b        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.counter.3748
+ .bss.CURRENT_PROCESS
                 0x2000022c        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.currentChar.3770
+ .bss.INIT_COMPLETED_FLAG
                 0x2000022d        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- .bss.lenght    0x2000022e        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
- *fill*         0x2000022f        0x1 
- .bss.word      0x20000230       0xff ./02-HAL/02-HCLCD/HCLCD_program.o
- *fill*         0x2000032f        0x1 
+ .bss.REQUESTED_COLUMN
+                0x2000022e        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.REQUESTED_ROW
+                0x2000022f        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.counter.3748
+                0x20000230        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.currentChar.3770
+                0x20000231        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .bss.lenght    0x20000232        0x1 ./02-HAL/02-HCLCD/HCLCD_program.o
+ *fill*         0x20000233        0x1 
+ .bss.word      0x20000234       0xff ./02-HAL/02-HCLCD/HCLCD_program.o
+ *fill*         0x20000333        0x1 
  .bss.counter.3721
-                0x20000330        0x1 ./02-HAL/01-SWITCH/SWITCH_program.o
- .bss.currState.3720
-                0x20000331        0x1 ./02-HAL/01-SWITCH/SWITCH_program.o
- *fill*         0x20000332        0x2 
- .bss.prevState.3719
                 0x20000334        0x1 ./02-HAL/01-SWITCH/SWITCH_program.o
- *fill*         0x20000335        0x3 
+ .bss.currState.3720
+                0x20000335        0x1 ./02-HAL/01-SWITCH/SWITCH_program.o
+ *fill*         0x20000336        0x2 
+ .bss.prevState.3719
+                0x20000338        0x1 ./02-HAL/01-SWITCH/SWITCH_program.o
+ *fill*         0x20000339        0x3 
  .bss.appRxNotify
-                0x20000338        0x4 ./01-MCAL/05-UART/UART_program.o
- .bss.appTxNotify
                 0x2000033c        0x4 ./01-MCAL/05-UART/UART_program.o
+ .bss.appTxNotify
+                0x20000340        0x4 ./01-MCAL/05-UART/UART_program.o
  .bss.SYSTICK_CallBack
-                0x20000340        0x4 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+                0x20000344        0x4 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
  .bss.__malloc_free_list
-                0x20000344        0x4 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x20000344                __malloc_free_list
- .bss.__malloc_sbrk_start
                 0x20000348        0x4 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x20000348                __malloc_sbrk_start
+                0x20000348                __malloc_free_list
+ .bss.__malloc_sbrk_start
+                0x2000034c        0x4 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x2000034c                __malloc_sbrk_start
  *(COMMON)
- COMMON         0x2000034c        0x4 ./system/src/newlib/_syscalls.o
-                0x2000034c                errno
- COMMON         0x20000350        0x8 ./03-APP/APP/APP.o
-                0x20000350                TX_frame
-                0x20000354                RX_frame
- COMMON         0x20000358        0xc ./02-HAL/02-HCLCD/HCLCD_program.o
-                0x20000358                WRITE_DONE_NOTIFICATION
-                0x2000035c                CLEAR_DONE_NOTIFICATION
-                0x20000360                MOVE_CURSOR_DONE_NOTIFICATION
- COMMON         0x20000364        0x8 ./02-HAL/01-SWITCH/SWITCH_program.o
-                0x20000364                switchState
-                0x20000368                switchMapElement
- COMMON         0x2000036c       0x20 ./01-MCAL/05-UART/UART_program.o
-                0x2000036c                RxBuffer
-                0x2000037c                TxBuffer
+ COMMON         0x20000350        0x4 ./system/src/newlib/_syscalls.o
+                0x20000350                errno
+ COMMON         0x20000354        0x8 ./03-APP/APP/APP.o
+                0x20000354                TX_frame
+                0x20000358                RX_frame
+ COMMON         0x2000035c        0xc ./02-HAL/02-HCLCD/HCLCD_program.o
+                0x2000035c                WRITE_DONE_NOTIFICATION
+                0x20000360                CLEAR_DONE_NOTIFICATION
+                0x20000364                MOVE_CURSOR_DONE_NOTIFICATION
+ COMMON         0x20000368        0x8 ./02-HAL/01-SWITCH/SWITCH_program.o
+                0x20000368                switchState
+                0x2000036c                switchMapElement
+ COMMON         0x20000370       0x20 ./01-MCAL/05-UART/UART_program.o
+                0x20000370                RxBuffer
+                0x20000380                TxBuffer
  *(.bss_end .bss_end.*)
- .bss_end       0x2000038c        0x4 ./system/src/newlib/_startup.o
-                0x20000390                . = ALIGN (0x4)
-                0x20000390                __bss_end__ = .
-                0x20000390                _ebss = .
+ .bss_end       0x20000390        0x4 ./system/src/newlib/_startup.o
+                0x20000394                . = ALIGN (0x4)
+                0x20000394                __bss_end__ = .
+                0x20000394                _ebss = .
 
 .noinit_CCMRAM
  *(.noinit.CCMRAM .noinit.CCMRAM.*)
 
-.noinit         0x20000390        0x0
-                0x20000390                _noinit = .
+.noinit         0x20000394        0x0
+                0x20000394                _noinit = .
  *(.noinit .noinit.*)
-                0x20000390                . = ALIGN (0x4)
-                0x20000390                _end_noinit = .
+                0x20000394                . = ALIGN (0x4)
+                0x20000394                _end_noinit = .
                 [!provide]                PROVIDE (end, _end_noinit)
                 [!provide]                PROVIDE (_end, _end_noinit)
                 [!provide]                PROVIDE (__end, _end_noinit)
                 [!provide]                PROVIDE (__end__, _end_noinit)
 
-._check_stack   0x20000390      0x100
-                0x20000490                . = (. + _Minimum_Stack_Size)
- *fill*         0x20000390      0x100 
+._check_stack   0x20000394      0x100
+                0x20000494                . = (. + _Minimum_Stack_Size)
+ *fill*         0x20000394      0x100 
 
 .b1text
  *(.b1text)
@@ -2419,7 +2426,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5701
+.debug_info     0x00000000     0x57d9
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xef ./system/src/newlib/_exit.o
  .debug_info    0x000000ef      0x11f ./system/src/newlib/_sbrk.o
@@ -2433,18 +2440,18 @@ END GROUP
  .debug_info    0x000026fd       0xd1 ./system/src/cmsis/vectors_stm32f10x.o
  .debug_info    0x000027ce      0x168 ./05-OS/SCHEDULER_config.o
  .debug_info    0x00002936      0x288 ./05-OS/SCHEDULER_program.o
- .debug_info    0x00002bbe      0xb52 ./03-APP/APP/APP.o
- .debug_info    0x00003710       0xf7 ./03-APP/main.o
- .debug_info    0x00003807      0xadb ./02-HAL/02-HCLCD/HCLCD_program.o
- .debug_info    0x000042e2      0x10f ./02-HAL/01-SWITCH/SWITCH_config.o
- .debug_info    0x000043f1      0x3ba ./02-HAL/01-SWITCH/SWITCH_program.o
- .debug_info    0x000047ab      0x46d ./01-MCAL/05-UART/UART_program.o
- .debug_info    0x00004c18      0x1a8 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
- .debug_info    0x00004dc0      0x365 ./01-MCAL/03-NVIC/NVIC_program.o
- .debug_info    0x00005125      0x345 ./01-MCAL/02-GPIO/GPIO_program.o
- .debug_info    0x0000546a      0x297 ./01-MCAL/01-RCC/RCC_program.o
+ .debug_info    0x00002bbe      0xb90 ./03-APP/APP/APP.o
+ .debug_info    0x0000374e       0xf7 ./03-APP/main.o
+ .debug_info    0x00003845      0xadb ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_info    0x00004320      0x10f ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_info    0x0000442f      0x3ba ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_info    0x000047e9      0x507 ./01-MCAL/05-UART/UART_program.o
+ .debug_info    0x00004cf0      0x1a8 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_info    0x00004e98      0x365 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_info    0x000051fd      0x345 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_info    0x00005542      0x297 ./01-MCAL/01-RCC/RCC_program.o
 
-.debug_abbrev   0x00000000     0x1bf6
+.debug_abbrev   0x00000000     0x1c22
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x8e ./system/src/newlib/_exit.o
  .debug_abbrev  0x0000008e       0xb9 ./system/src/newlib/_sbrk.o
@@ -2458,18 +2465,18 @@ END GROUP
  .debug_abbrev  0x00000ca3       0x9d ./system/src/cmsis/vectors_stm32f10x.o
  .debug_abbrev  0x00000d40       0xbb ./05-OS/SCHEDULER_config.o
  .debug_abbrev  0x00000dfb      0x127 ./05-OS/SCHEDULER_program.o
- .debug_abbrev  0x00000f22      0x226 ./03-APP/APP/APP.o
- .debug_abbrev  0x00001148       0x7d ./03-APP/main.o
- .debug_abbrev  0x000011c5      0x1d7 ./02-HAL/02-HCLCD/HCLCD_program.o
- .debug_abbrev  0x0000139c       0xcc ./02-HAL/01-SWITCH/SWITCH_config.o
- .debug_abbrev  0x00001468      0x15e ./02-HAL/01-SWITCH/SWITCH_program.o
- .debug_abbrev  0x000015c6      0x1ba ./01-MCAL/05-UART/UART_program.o
- .debug_abbrev  0x00001780      0x147 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
- .debug_abbrev  0x000018c7      0x126 ./01-MCAL/03-NVIC/NVIC_program.o
- .debug_abbrev  0x000019ed      0x116 ./01-MCAL/02-GPIO/GPIO_program.o
- .debug_abbrev  0x00001b03       0xf3 ./01-MCAL/01-RCC/RCC_program.o
+ .debug_abbrev  0x00000f22      0x219 ./03-APP/APP/APP.o
+ .debug_abbrev  0x0000113b       0x7d ./03-APP/main.o
+ .debug_abbrev  0x000011b8      0x1d7 ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_abbrev  0x0000138f       0xcc ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_abbrev  0x0000145b      0x15e ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_abbrev  0x000015b9      0x1f3 ./01-MCAL/05-UART/UART_program.o
+ .debug_abbrev  0x000017ac      0x147 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_abbrev  0x000018f3      0x126 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_abbrev  0x00001a19      0x116 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_abbrev  0x00001b2f       0xf3 ./01-MCAL/01-RCC/RCC_program.o
 
-.debug_line     0x00000000     0x3a9e
+.debug_line     0x00000000     0x3aaf
  *(.debug_line)
  .debug_line    0x00000000      0x35d ./system/src/newlib/_exit.o
  .debug_line    0x0000035d      0x30e ./system/src/newlib/_sbrk.o
@@ -2482,17 +2489,17 @@ END GROUP
  .debug_line    0x0000222f      0x3d5 ./system/src/cmsis/system_stm32f10x.o
  .debug_line    0x00002604      0x10b ./system/src/cmsis/vectors_stm32f10x.o
  .debug_line    0x0000270f       0xa0 ./05-OS/SCHEDULER_config.o
- .debug_line    0x000027af      0x150 ./05-OS/SCHEDULER_program.o
- .debug_line    0x000028ff      0x4a5 ./03-APP/APP/APP.o
- .debug_line    0x00002da4       0xae ./03-APP/main.o
- .debug_line    0x00002e52      0x2eb ./02-HAL/02-HCLCD/HCLCD_program.o
- .debug_line    0x0000313d      0x107 ./02-HAL/01-SWITCH/SWITCH_config.o
- .debug_line    0x00003244      0x1a1 ./02-HAL/01-SWITCH/SWITCH_program.o
- .debug_line    0x000033e5      0x1cb ./01-MCAL/05-UART/UART_program.o
- .debug_line    0x000035b0      0x10f ./01-MCAL/04-SYSTIC/SYSTICK_program.o
- .debug_line    0x000036bf      0x121 ./01-MCAL/03-NVIC/NVIC_program.o
- .debug_line    0x000037e0      0x128 ./01-MCAL/02-GPIO/GPIO_program.o
- .debug_line    0x00003908      0x196 ./01-MCAL/01-RCC/RCC_program.o
+ .debug_line    0x000027af      0x14f ./05-OS/SCHEDULER_program.o
+ .debug_line    0x000028fe      0x4b1 ./03-APP/APP/APP.o
+ .debug_line    0x00002daf       0xae ./03-APP/main.o
+ .debug_line    0x00002e5d      0x2eb ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_line    0x00003148      0x107 ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_line    0x0000324f      0x1a1 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_line    0x000033f0      0x1d1 ./01-MCAL/05-UART/UART_program.o
+ .debug_line    0x000035c1      0x10f ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_line    0x000036d0      0x121 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_line    0x000037f1      0x128 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_line    0x00003919      0x196 ./01-MCAL/01-RCC/RCC_program.o
 
 .debug_frame    0x00000000      0xcb8
  *(.debug_frame)
@@ -2532,7 +2539,7 @@ END GROUP
  .debug_frame   0x00000c68       0x30 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-mlock.o)
  .debug_frame   0x00000c98       0x20 d:/arm/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libg_nano.a(lib_a-nano-msizer.o)
 
-.debug_str      0x00000000    0x591b5
+.debug_str      0x00000000    0x591a7
  *(.debug_str)
  .debug_str     0x00000000     0x6d45 ./system/src/newlib/_exit.o
                                0x6eb7 (size before relaxing)
@@ -2558,25 +2565,25 @@ END GROUP
                                0x2ec9 (size before relaxing)
  .debug_str     0x00056400      0x14a ./05-OS/SCHEDULER_program.o
                                0x2fd1 (size before relaxing)
- .debug_str     0x0005654a      0xa31 ./03-APP/APP/APP.o
-                               0x8fce (size before relaxing)
- .debug_str     0x00056f7b       0x11 ./03-APP/main.o
+ .debug_str     0x0005654a      0xa50 ./03-APP/APP/APP.o
+                               0x8fe0 (size before relaxing)
+ .debug_str     0x00056f9a       0x11 ./03-APP/main.o
                                0x2e26 (size before relaxing)
- .debug_str     0x00056f8c      0x7ee ./02-HAL/02-HCLCD/HCLCD_program.o
+ .debug_str     0x00056fab      0x7dc ./02-HAL/02-HCLCD/HCLCD_program.o
                                0x3a9e (size before relaxing)
- .debug_str     0x0005777a       0x5b ./02-HAL/01-SWITCH/SWITCH_config.o
+ .debug_str     0x00057787       0x5b ./02-HAL/01-SWITCH/SWITCH_config.o
                                0x35d4 (size before relaxing)
- .debug_str     0x000577d5       0xb6 ./02-HAL/01-SWITCH/SWITCH_program.o
+ .debug_str     0x000577e2       0xb6 ./02-HAL/01-SWITCH/SWITCH_program.o
                                0x3743 (size before relaxing)
- .debug_str     0x0005788b     0x1377 ./01-MCAL/05-UART/UART_program.o
-                               0x4518 (size before relaxing)
- .debug_str     0x00058c02      0x160 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
+ .debug_str     0x00057898     0x1370 ./01-MCAL/05-UART/UART_program.o
+                               0x4539 (size before relaxing)
+ .debug_str     0x00058c08      0x160 ./01-MCAL/04-SYSTIC/SYSTICK_program.o
                                0x27d7 (size before relaxing)
- .debug_str     0x00058d62      0x282 ./01-MCAL/03-NVIC/NVIC_program.o
+ .debug_str     0x00058d68      0x26e ./01-MCAL/03-NVIC/NVIC_program.o
                                0x37b2 (size before relaxing)
- .debug_str     0x00058fe4       0xd5 ./01-MCAL/02-GPIO/GPIO_program.o
+ .debug_str     0x00058fd6       0xd5 ./01-MCAL/02-GPIO/GPIO_program.o
                                0x2a95 (size before relaxing)
- .debug_str     0x000590b9       0xfc ./01-MCAL/01-RCC/RCC_program.o
+ .debug_str     0x000590ab       0xfc ./01-MCAL/01-RCC/RCC_program.o
                                0x32a5 (size before relaxing)
 
 .debug_loc      0x00000000     0x1c71

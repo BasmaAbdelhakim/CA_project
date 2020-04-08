@@ -11,10 +11,10 @@
 
 #include "GPIO_interface.h"
 
+
+
 #define MODE_CONFIG_CLEAR 0x0000000F
 #define MODE_CONFIG_SIZE 4
-
-#define CONFIG_INPUT_PULL_UP_DOWN		0x00000008
 
 typedef struct {
   u32 CRL;
@@ -37,7 +37,7 @@ typedef struct {
   Output: ERROR_STATUS
 
  */
-ERROR_STATUS GPIO_initPin(GPIO_t * peri)
+extern ERROR_STATUS GPIO_initPin(GPIO_t * peri)
 {
   ERROR_STATUS currentStatus = status_Ok;
   u32 temp;
@@ -45,26 +45,7 @@ ERROR_STATUS GPIO_initPin(GPIO_t * peri)
   u32 updatedPin;
   u32 pinLoopPosition,realPosition,currentPosition;
   
-  u8 pullUpFlag = 0;
-  u32 finalConfiguration;
-  
   GPIO * PORT = (GPIO *) peri->port;
-  
-  finalConfiguration = peri->configuration;
-  
-  /* Checking if peripheral is connected as pull up or pull down input
-   * CONFIG_INPUT_PULL_UP & CONFIG_INPUT_PULL_DOWN are not mask configurations
-   * if ture, then finalConfiguration should be updated
-   * */
-   if  (peri->mode == MODE_INPUT && (peri->configuration == CONFIG_INPUT_PULL_UP || peri->configuration == CONFIG_INPUT_PULL_DOWN))
-   {
-  	 if (peri->configuration == CONFIG_INPUT_PULL_UP)
-  	 {
-  		 pullUpFlag = 1;
-  	 }
-  	 /* Setting the right mask for pull up/down configuration */
-  	 finalConfiguration = CONFIG_INPUT_PULL_UP_DOWN;
-   }
   
   /* Setting CRL pins configurations */
   for (pinLoopPosition = 0x00; pinLoopPosition < 0x08; pinLoopPosition++)
@@ -75,7 +56,7 @@ ERROR_STATUS GPIO_initPin(GPIO_t * peri)
     if (currentPosition == realPosition)
     {
       temp = PORT->CRL & ~(MODE_CONFIG_CLEAR << ( pinLoopPosition * MODE_CONFIG_SIZE));
-      modeConfiguration = peri->mode | finalConfiguration;
+      modeConfiguration = peri->mode | peri->configuration;
       temp |= modeConfiguration << (pinLoopPosition * MODE_CONFIG_SIZE);
       PORT->CRL = temp; 
     }
@@ -96,13 +77,6 @@ ERROR_STATUS GPIO_initPin(GPIO_t * peri)
       PORT->CRH = temp; 
     }
   }
-  
-  /* In case of pull up, the corresponding pin should be set to one in ODR register */
-   if (pullUpFlag)
-   {
-   	 pullUpFlag = 0;
-   	 PORT->BSRR = peri->pin;
-   }
  
   return currentStatus;
 }
@@ -119,7 +93,7 @@ ERROR_STATUS GPIO_initPin(GPIO_t * peri)
   Output: ERROR_STATUS
 
  */
-ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value)
+extern ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value)
 {
   
   ERROR_STATUS currentStatus = status_Ok;
@@ -154,7 +128,7 @@ ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value)
   Output: ERROR_STATUS
 
  */
-ERROR_STATUS GPIO_directWritePin(void * port ,u32 pin, u8 value)
+extern ERROR_STATUS GPIO_directWritePin(void * port ,u32 pin, u8 value)
 {
   ERROR_STATUS currentStatus = status_Ok;
   
@@ -189,34 +163,14 @@ ERROR_STATUS GPIO_directWritePin(void * port ,u32 pin, u8 value)
   Output: ERROR_STATUS
 
  */
-ERROR_STATUS GPIO_readPin(GPIO_t * peri, u8 *value)
+extern ERROR_STATUS GPIO_readPin(GPIO_t * peri, u8 *value)
 {
   ERROR_STATUS status = status_Ok;
   
-  u8 temp;
-  
   GPIO * PORT = (GPIO *) peri->port;
   
-  temp = PORT->IDR & peri->pin;
-  
-  if (temp != 0)
-  {
-		*value = 1;
-  }
-  else
-  {
-		*value = 0;
-  }
-  
-  /* Checking if input pin is pull up, if true then toggle value */
-  temp = 0;
-  temp = PORT-> ODR & peri->pin;
-  
-  if (temp != 0 )
-  {
-		* value = * value ^ 0x01;
-  }
-  
+  * value = PORT->IDR & peri->pin;
+    
   return status;
 }
 
@@ -234,34 +188,13 @@ ERROR_STATUS GPIO_readPin(GPIO_t * peri, u8 *value)
   Output: ERROR_STATUS
 
  */
-ERROR_STATUS GPIO_directReadPin(void * port ,u32 pin, u8 * value)
+extern ERROR_STATUS GPIO_directReadPin(void * port ,u32 pin, u8 * value)
 {
   ERROR_STATUS status = status_Ok;
   
-  u8 temp;
-  
   GPIO * PORT = (GPIO *) port;
   
-  temp = PORT->IDR & pin;
-  
-  if (temp != 0)
-	{
-		*value = 1;
-	}
-	else
-	{
-		*value = 0;
-	}
-
-	/* Checking if input pin is pull up, if true then toggle value */
-	temp = 0;
-	temp = PORT-> ODR & pin;
-
-	if (temp != 0 )
-	{
-		* value = * value ^ 0x01;
-	}
-  
+  * value = PORT->IDR & pin;
     
   return status;
 }

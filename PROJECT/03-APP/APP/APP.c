@@ -21,7 +21,7 @@
 
 
 
-const Task_t APP_Task ={Application,20,READY};
+const Task_t APP_Task ={Application,30,READY};
 
 
 typedef union
@@ -43,65 +43,63 @@ void APP_Init(void)
 	RCC_EnablePrephiralClock(APB2ENR_BUS, PORTB_Enable);
 	RCC_EnablePrephiralClock(APB2ENR_BUS, UART_Enable);
 
-	Switch_Init(SWITCH_1);
+	SwitchTask_Init(SWITCH_1);
 
 	HCLCD_init();
 
 	UART_voidInit();
+
+	 TX_frame.fullFrame=0;
+	 RX_frame.fullFrame=0;
 }
 
 
 
-/* every 20 ms  */
+/* every 30 ms  */
 void Application(void)
 {
-	 char string_Buffer[20];
 	 static u32 switch_counter ;
 	 static u32 ticks_counter ;
-	 static u8 prevSwitchState = RELEASED;
-	 static u8 currentSwitchState = RELEASED;
+	 static u8 prevSwitchState ;
+	 static u8 currentSwitchState;
 
+	 ticks_counter++;
 
-	/* SWITCH READ TASK */
-	if(ticks_counter % 1 == 0) //20 ms
+	/* SWITCH  TASK */
+	if(ticks_counter ) //30 ms
     {
 		  SwitchTask_GetSwitchState(SWITCH_1, &currentSwitchState);
 
 		  if (currentSwitchState == PRESSED  &&  prevSwitchState == RELEASED)
 		  {
 			  switch_counter++;
-			  trace_printf("switch_counter  =  %d  ", switch_counter);
-			  prevSwitchState = PRESSED;
-
 			  TX_frame.fullFrame = switch_counter;
+			  prevSwitchState = PRESSED;
 		  }
 		  prevSwitchState = currentSwitchState;
     }
 
 
      /*  RX TASK  */
-	 else if(ticks_counter % 3 == 0 )//60 ms
+	 if(ticks_counter % 2 == 0 )//60 ms
 	 {
 		UART_u8Recieve(RX_frame.data, 4);
 	 }
 
 
 	 /* LCD DISPLAY TASK */
-	 else if(ticks_counter % 5 == 0 )//100 ms
+	 if(ticks_counter % 3 == 0  )//90 ms
 	 {
-		itoa(RX_frame.fullFrame,string_Buffer,10);
-		HCLCD_writeString((u8*)string_Buffer,1);
+		HCLCD_writeString(RX_frame.data,4);
 	 }
 
 
 	 /* TX TASK */
-	 else if(ticks_counter % 6 == 0 )//120 ms
+	 if(ticks_counter % 4 == 0 )//120 ms
 	 {
-		UART_u8Send(TX_frame.data,4);
+		UART_u8Send(TX_frame.data,4);//TX
 	 }
 
-	 else
-	 {}
 
 }
 

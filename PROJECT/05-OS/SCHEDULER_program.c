@@ -48,7 +48,7 @@ static void Scheduler(void);
 void SCHEDULER_Init(void)
 {
 	u32 TaskNumber;
-	OS_Flag = 0 ;
+	//OS_Flag = 0 ;
 
 	SysTaskInfo_t* SysTaskInfoFunction = SysTasksInfoFunc();
 

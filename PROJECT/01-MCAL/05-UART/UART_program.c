@@ -1,30 +1,18 @@
-/*
- * UART_program.c
- *
- *  Created on: Apr 5, 2020
- *      Author: pc
- */
-
-
-
-/**
- * @brief
- * @file
- *
- */
-
 /************************************
  * Author: Esraa Awad                *
  * Date: 26/3/2020                   *
- * File: Systick.h                   *
+ * File: UART.c                      * 
  * Target: STM                       *
  ************************************/
 
-#include "STD_TYPES.h"
+#include "../../04-lib/STD_TYPES.h"
 
-#include "GPIO_interface.h"
-#include "NVIC_interface.h"
+#include "../../01-MCAL/02-GPIO/GPIO_interface.h"
+#include "../../01-MCAL/03-NVIC/NVIC_interface.h"
+
 #include "UART_interface.h"
+
+
 
 
 
@@ -346,6 +334,7 @@ void USART1_IRQHandler (void)
 		if (TxBuffer.position != TxBuffer.size)
 		{
 			UART -> DR = TxBuffer.data[TxBuffer.position];
+			 trace_printf("tx  =  %c\n\n",  UART -> DR);
 			TxBuffer.position++;
 		}
 		else
@@ -366,6 +355,7 @@ void USART1_IRQHandler (void)
 		if (RxBuffer.state == busy )
 		{
 			RxBuffer.data[RxBuffer.position] = UART -> DR ;
+			 trace_printf("rx  =  %c\n\n ",  UART -> DR);
 			RxBuffer.position++;
 
 			if (RxBuffer.position == RxBuffer.size)
@@ -386,4 +376,3 @@ void USART1_IRQHandler (void)
 
 	}
 }
-

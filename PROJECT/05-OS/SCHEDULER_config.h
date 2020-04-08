@@ -11,7 +11,7 @@
 #define _SCHEDULER_CONFIG_H_
 
 
-#define  SYSTICK_TICK_TIME_MS      2
+#define  SYSTICK_TICK_TIME_MS      5
 
 
 #define  NUMBER_OF_TASKS           3

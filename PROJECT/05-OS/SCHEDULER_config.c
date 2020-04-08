@@ -28,8 +28,10 @@ extern Task_t Switch_Task;
 static SysTaskInfo_t SysTasksInfo[]={
 
 										{&Switch_Task,0},
-										{&Lcd_Task,0},
-										{&APP_Task,0}
+
+										{&APP_Task,0},
+
+										{&Lcd_Task,0}
 
 									};
 

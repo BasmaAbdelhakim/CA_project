@@ -16,7 +16,7 @@
 #define SWITCH_1                 0
 #define SWITCH_1_PIN             PIN15
 #define SWITCH_1_PORT            PORTA
-#define SWITCH_1_PULL_STATE      CONFIG_INPUT_PULL_UP
+#define SWITCH_1_PULL_STATE      PULL_UP
 
 
 

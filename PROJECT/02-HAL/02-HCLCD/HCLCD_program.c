@@ -87,7 +87,7 @@ static u8 word[255];
 static u8 REQUESTED_ROW;
 static u8 REQUESTED_COLUMN;
 
-const Task_t Lcd_Task ={HCLCD_task,2,READY};
+const Task_t Lcd_Task ={HCLCD_task ,5 ,READY};
 
 notify_t WRITE_DONE_NOTIFICATION;
 notify_t CLEAR_DONE_NOTIFICATION;
@@ -222,7 +222,7 @@ static u8 HCLCD_initProcess(void) {
 	u8 maxDataBits=8;
 	u8 returnValue = status_NOk;
     static u8 CLCD_E_value=0;
-	if (counter >= 20) {
+	if (counter >= 8) {
 		switch (currentInitState) {
 		case FUNCTION_SET_COMMAND:
 			GPIO_directReadPin(CLCD_E_PORT,CLCD_E, &CLCD_E_value);
