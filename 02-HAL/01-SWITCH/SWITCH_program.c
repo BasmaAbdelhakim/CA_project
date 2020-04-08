@@ -17,8 +17,11 @@
 #include "SWITCH_interface.h"
 #include "SWITCH_config.h"
 
-const Task_t Switch_Task ={switchTask,4,READY};
 
+/*
+	Object of scheduler's task to hold the switch task
+*/
+const Task_t Switch_Task ={switchTask ,5 ,READY};
 u8 switchState[SWITCH_NUM];
 
 switchmap_t * switchMapElement;
@@ -33,7 +36,7 @@ switchmap_t * switchMapElement;
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS Switch_Init(u32 switchNum)
+ERROR_STATUS Switch_Init(u32 switchNum)
 {
 
 	ERROR_STATUS status = status_Ok;
@@ -62,7 +65,7 @@ extern ERROR_STATUS Switch_Init(u32 switchNum)
   Output: status_t
 
  */
-extern ERROR_STATUS Switch_GetSwitchState(u32 switchNum, u8 * switchValue)
+ERROR_STATUS Switch_GetSwitchState(u32 switchNum, u8 * switchValue)
 {
 	ERROR_STATUS status = status_Ok;
 
@@ -90,7 +93,7 @@ extern ERROR_STATUS Switch_GetSwitchState(u32 switchNum, u8 * switchValue)
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS SwitchTask_GetSwitchState(u32 switchNum, u8 * switchValue)
+ERROR_STATUS SwitchTask_GetSwitchState(u32 switchNum, u8 * switchValue)
 {
 
 	ERROR_STATUS status = status_Ok;
@@ -109,7 +112,7 @@ extern ERROR_STATUS SwitchTask_GetSwitchState(u32 switchNum, u8 * switchValue)
   Output: void
 
  */
-extern void switchTask (void)
+void switchTask (void)
 {
 	static u8 prevState[SWITCH_NUM];
 	static u8 currState;

@@ -37,7 +37,7 @@ typedef struct {
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS GPIO_initPin(GPIO_t * peri)
+ERROR_STATUS GPIO_initPin(GPIO_t * peri)
 {
   ERROR_STATUS currentStatus = status_Ok;
   u32 temp;
@@ -119,7 +119,7 @@ extern ERROR_STATUS GPIO_initPin(GPIO_t * peri)
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value)
+ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value)
 {
   
   ERROR_STATUS currentStatus = status_Ok;
@@ -154,7 +154,7 @@ extern ERROR_STATUS GPIO_writePin(GPIO_t * peri, u32 value)
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS GPIO_directWritePin(void * port ,u32 pin, u8 value)
+ERROR_STATUS GPIO_directWritePin(void * port ,u32 pin, u8 value)
 {
   ERROR_STATUS currentStatus = status_Ok;
   
@@ -189,7 +189,7 @@ extern ERROR_STATUS GPIO_directWritePin(void * port ,u32 pin, u8 value)
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS GPIO_readPin(GPIO_t * peri, u8 *value)
+ERROR_STATUS GPIO_readPin(GPIO_t * peri, u8 *value)
 {
   ERROR_STATUS status = status_Ok;
   
@@ -234,7 +234,7 @@ extern ERROR_STATUS GPIO_readPin(GPIO_t * peri, u8 *value)
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS GPIO_directReadPin(void * port ,u32 pin, u8 * value)
+ERROR_STATUS GPIO_directReadPin(void * port ,u32 pin, u8 * value)
 {
   ERROR_STATUS status = status_Ok;
   

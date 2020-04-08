@@ -16,17 +16,20 @@
 #include "SWITCH_config.h"
 
 
-
-
-
-
-
 /*
   Creating an array of switch struct that holds switches in the system
 */
 const switchmap_t switchMap [SWITCH_NUM] = {
-  {SWITCH_1_PIN,SWITCH_1_PORT,SWITCH_1_PULL_STATE},
+		{
+				.switchElementIO = {
+						.pin = SWITCH_1_PIN,
+						.port = SWITCH_1_PORT,
+						.mode = MODE_INPUT,
+						.configuration = SWITCH_1_PULL_STATE
+				}
+		}
 };
+
 
 
 /* 
@@ -38,8 +41,8 @@ const switchmap_t switchMap [SWITCH_NUM] = {
   Output: Address of switch struct that maps the switchNum 
 
  */
-
 extern switchmap_t * getSwitchMap (u32 switchNum)
 {
   return (switchmap_t *)&switchMap[switchNum];
 }
+

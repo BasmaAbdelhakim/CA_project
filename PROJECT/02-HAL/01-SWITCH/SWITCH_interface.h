@@ -7,11 +7,10 @@
 /* File Name: SWITCH_task.h                     */
 /************************************************/
 
+#include "SWITCH_config.h"
+
 #ifndef SWITCH_H
 #define SWITCH_H
-
-#define PULL_UP     1
-#define PULL_DOWN   2
 
 #define PRESSED  1
 #define RELEASED 0 
@@ -20,9 +19,8 @@
 
 typedef struct 
 {
-  u32 pin;
-  void * port;
-  u32 pullState;
+	GPIO_t  switchElementIO;
+
 } switchmap_t;
 
 /* 
@@ -34,7 +32,7 @@ typedef struct
   Output: ERROR_STATUS
 
  */
-extern ERROR_STATUS SwitchTask_Init(u32 switchNum);
+extern ERROR_STATUS Switch_Init(u32 switchNum);
 
 /*
   Description: This function shall return the specified switch state which can be
@@ -72,11 +70,5 @@ extern ERROR_STATUS SwitchTask_GetSwitchState(u32 switchNum, u8 * switchValue);
 
  */
 extern void switchTask (void);
-
-extern switchmap_t * getSwitchMap (u32 switchNum);
-
-
-#include "SWITCH_config.h"
-
 
 #endif

@@ -43,5 +43,5 @@ const switchmap_t switchMap [SWITCH_NUM] = {
  */
 extern switchmap_t * getSwitchMap (u32 switchNum)
 {
-  return &switchMap[switchNum];
+  return (switchmap_t *)&switchMap[switchNum];
 }

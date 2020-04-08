@@ -6,13 +6,11 @@
 /* Component: SWITCH                            */
 /* File Name: SWITCH_task.h                     */
 /************************************************/
-#include "../../../02-HAL/01-SWITCH/SWITCH_config.h"
+
+#include "SWITCH_config.h"
 
 #ifndef SWITCH_H
 #define SWITCH_H
-
-#define PULL_UP     1
-#define PULL_DOWN   2
 
 #define PRESSED  1
 #define RELEASED 0 

@@ -43,7 +43,7 @@ void APP_Init(void)
 	RCC_EnablePrephiralClock(APB2ENR_BUS, PORTB_Enable);
 	RCC_EnablePrephiralClock(APB2ENR_BUS, UART_Enable);
 
-	SwitchTask_Init(SWITCH_1);
+	Switch_Init(SWITCH_1);
 
 	HCLCD_init();
 
