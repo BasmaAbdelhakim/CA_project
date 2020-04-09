@@ -29,7 +29,7 @@ static SysTaskInfo_t SysTasksInfo[]={
 
 										{&Switch_Task,0},
 
-										{&APP_Task,0},
+										{&APP_Task,5},
 
 										{&Lcd_Task,0}
 

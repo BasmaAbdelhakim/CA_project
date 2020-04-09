@@ -26,8 +26,8 @@ const Task_t APP_Task ={Application,30,READY};
 
 typedef union
 {
-    uint8_t data[4];
-    uint32_t fullFrame;
+    u8 data[4];
+    u32 fullFrame;
 
 }frame_t;
 
@@ -47,21 +47,24 @@ void APP_Init(void)
 
 	HCLCD_init();
 
-	UART_voidInit();
+	UART_voidInit(USART1);
 
-	 TX_frame.fullFrame=0;
-	 RX_frame.fullFrame=0;
 }
+
+
 
 
 
 /* every 30 ms  */
 void Application(void)
 {
+
 	 static u32 switch_counter ;
 	 static u32 ticks_counter ;
 	 static u8 prevSwitchState ;
 	 static u8 currentSwitchState;
+
+
 
 	 ticks_counter++;
 
@@ -70,10 +73,13 @@ void Application(void)
     {
 		  SwitchTask_GetSwitchState(SWITCH_1, &currentSwitchState);
 
+
 		  if (currentSwitchState == PRESSED  &&  prevSwitchState == RELEASED)
 		  {
+
 			  switch_counter++;
-			  TX_frame.fullFrame = switch_counter;
+			  itoa(switch_counter,TX_frame.data,10);
+
 			  prevSwitchState = PRESSED;
 		  }
 		  prevSwitchState = currentSwitchState;
@@ -83,7 +89,7 @@ void Application(void)
      /*  RX TASK  */
 	 if(ticks_counter % 2 == 0 )//60 ms
 	 {
-		UART_u8Recieve(RX_frame.data, 4);
+		UART_Recieve(RX_frame.data, 4);
 	 }
 
 
@@ -97,11 +103,13 @@ void Application(void)
 	 /* TX TASK */
 	 if(ticks_counter % 4 == 0 )//120 ms
 	 {
-		UART_u8Send(TX_frame.data,4);//TX
+		UART_Send(TX_frame.data,4);  //TX
 	 }
 
 
 }
+
+
 
 
 

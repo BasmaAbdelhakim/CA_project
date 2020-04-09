@@ -7,8 +7,8 @@
 /* File Name: GPIO.c                            */
 /************************************************/
 
-#include "../../04-lib/STD_TYPES.h"
 
+#include "../../../04-lib/STD_TYPES.h"
 #include "GPIO_interface.h"
 
 #define MODE_CONFIG_CLEAR 0x0000000F

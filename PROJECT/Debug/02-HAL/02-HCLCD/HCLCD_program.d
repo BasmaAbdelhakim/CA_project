@@ -1,14 +1,14 @@
 02-HAL/02-HCLCD/HCLCD_program.o: ../02-HAL/02-HCLCD/HCLCD_program.c \
- d:\arm\arm\ca2\04-lib\std_types.h \
- d:\arm\arm\ca2\01-mcal\02-gpio\gpio_interface.h \
- d:\arm\arm\ca2\05-os\scheduler_interface.h \
+ ../02-HAL/02-HCLCD/../../04-lib/STD_TYPES.h \
+ ../02-HAL/02-HCLCD/../../01-MCAL/02-GPIO/GPIO_interface.h \
+ ../02-HAL/02-HCLCD/../../05-OS/SCHEDULER_interface.h \
  ../02-HAL/02-HCLCD/HCLCD_interface.h ../02-HAL/02-HCLCD/HCLCD_config.h
 
-d:\arm\arm\ca2\04-lib\std_types.h:
+../02-HAL/02-HCLCD/../../04-lib/STD_TYPES.h:
 
-d:\arm\arm\ca2\01-mcal\02-gpio\gpio_interface.h:
+../02-HAL/02-HCLCD/../../01-MCAL/02-GPIO/GPIO_interface.h:
 
-d:\arm\arm\ca2\05-os\scheduler_interface.h:
+../02-HAL/02-HCLCD/../../05-OS/SCHEDULER_interface.h:
 
 ../02-HAL/02-HCLCD/HCLCD_interface.h:
 

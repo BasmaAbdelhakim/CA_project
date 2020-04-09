@@ -1,60 +1,69 @@
 /************************************
  * Author: Esraa Awad                *
  * Date: 26/3/2020                   *
- * File: UART.c                      * 
+ * File: Systick.h                   *
  * Target: STM                       *
  ************************************/
+#include "../../../04-lib/STD_TYPES.h"
 
-#include "../../04-lib/STD_TYPES.h"
 
-#include "../../01-MCAL/02-GPIO/GPIO_interface.h"
-#include "../../01-MCAL/03-NVIC/NVIC_interface.h"
+
+
+
+#include "../../../04-lib/STD_TYPES.h"
+
+#include "../../../01-MCAL/03-NVIC/NVIC_interface.h"
 
 #include "UART_interface.h"
 
 
+#include "UART_Config.h"
 
+#include "diag/Trace.h"
+#include "HUART.h"
 
 
 /*********** MASKS ************/
-#define SR_TXE       0x00000080
-#define SR_RXNE      0x00000020
-#define CR1_UE       0x00002000
-#define CR1_TE       0x00000008
-#define CR1_RE       0x00000004
-#define SR_TXE       0x00000080
-#define SR_RXNE      0x00000020
-#define SR_TXE_CLR   0xffffff7f
-#define SR_RXNE_CLR  0xffffffdf
-#define CR1_RXNEIE	 0x00000020
-#define CR1_TXIE	 0x00000080
-#define SR_TC_CLR    0xffffffbf
-#define SR_TC		 0x00000040
-#define CR1_TCIE     0x00000040
-#define CR1_PCE		 0x00000100
-#define CR3_CTSE	 0x00000200
-#define CR3_RTSE	 0x00000100
-
-
-#define WORD_LENGTH_8 0x00001000
-#define WORD_LENGTH_9 0x00000000
-#define STOP_BITS_CLR 0xffffdfff
-#define STOP_BITS_1   0x00000000
-#define STOP_BITS_2   0x00002000
-#define BUADRATE_9600 (u32)7500
-
-
-#define ON 			1
-#define OFF 		2
-/******************************/
+#define UART_SR_TXE       0x00000080
+#define UART_SR_RXNE      0x00000020
+#define UART_CR1_UE       0x00002000
+#define UART_CR1_TE       0x00000008
+#define UART_CR1_RE       0x00000004
+#define UART_SR_TXE       0x00000080
+#define UART_SR_RXNE      0x00000020
+#define UART_SR_TXE_CLR   0xffffff7f
+#define UART_SR_RXNE_CLR  0xffffffdf
+#define UART_CR1_RXNEIE	  0x00000020
+#define UART_CR1_TXIE	    0x00000080
+#define UART_SR_TC_CLR    0xffffffbf
+#define UART_SR_TC		    0x00000040
+#define UART_CR1_TCIE     0x00000040
+#define UART_CR3_CTSE	    0x00000200
+#define UART_CR3_RTSE	    0x00000100
 
 
 
-#define USART1_BASE_ADDRESS   (u32)0x40013800
-#define USART2_BASE_ADDRESS   (u32)0x40004400
-#define USART3_BASE_ADDRESS   (u32)0x40004800
-#define UART4_BASE_ADDRESS    (u32)0x40004C00
-#define UART5_BASE_ADDRESS    (u32)0x40005000
+
+/******************************** UART DATA BUFFER  ******************************/
+typedef enum
+{
+	idle,
+	busy
+}UART_BufferState_t;
+
+
+
+typedef struct {
+	u8  *         DataBuffer;
+	u16           DataIndex;
+	u16           DataLength;
+	UART_BufferState_t State;
+
+}UART_DataBuffer_t;
+
+
+
+
 
 typedef struct {
 
@@ -66,38 +75,19 @@ typedef struct {
 	u32 CR3;
 	u32 GPTR;
 
-}UartPeri_t;
-
-volatile UartPeri_t * UART =(UartPeri_t *)USART1_BASE_ADDRESS;
-volatile UartPeri_t * UART2 =(UartPeri_t *)USART2_BASE_ADDRESS;
-volatile UartPeri_t * UART3 =(UartPeri_t *)USART3_BASE_ADDRESS;
-volatile UartPeri_t * UART4 =(UartPeri_t *)UART4_BASE_ADDRESS;
-volatile UartPeri_t * UART5 =(UartPeri_t *)UART5_BASE_ADDRESS;
-
-typedef enum
-{
-	idle,
-	busy
-}BufferState_t;
+}UART_REG_t;
 
 
 
-typedef struct {
-	u8  * data;
-	u32  position;
-	u32  size;
-	BufferState_t state;
 
-}DataBuffer_t;
 
-DataBuffer_t TxBuffer;
-DataBuffer_t RxBuffer;
+static UART_REG_t*       UARTX_REG;
 
-typedef void (*appTxNotify_t) (void);
-typedef void (*appRxNotify_t) (void);
+static UART_DataBuffer_t  UART_TxBuffer;
+static UART_DataBuffer_t  UART_RxBuffer;
 
-static appRxNotify_t  appRxNotify;
-static appTxNotify_t  appTxNotify;
+static UART_Txcbf_t      appRxNotify;
+static UART_Rxcbf_t      appTxNotify;
 
 
 
@@ -110,60 +100,52 @@ static appTxNotify_t  appTxNotify;
            3-USART3
            4-UART4
            5-UART5
-           u8 Copy_u8UART_Num
+
  * Output: void
  *
  */
-extern void UART_voidInit (void)
+void UART_voidInit (void* UART_Peri)
 {
-	/*Clear TC Flag*/
-	UART -> SR &= SR_TC_CLR;
 
-	/*Enable usart1*/
-	UART -> CR1 |= CR1_UE;
+	UARTX_REG = (UART_REG_t*)UART_Peri;
 
+	/*Enable usart */
+	UARTX_REG -> CR1 |= UART_CR1_UE;
 
-	/* GPIO configure pins */
-	GPIO_t USART1_tx;
-	GPIO_t USART1_rx;
+	/* Set IO Pins */
+	HUART_InitGPIO();
 
+	/*** Default Buffer Configuration  ****/
 
-	USART1_tx.pin=PIN9;
-	USART1_tx.mode=MODE_OUTPUT_SPEED_50;
-	USART1_tx.configuration=CONFIG_OUTPUT_ALTERNATE_FUNCTION_PUSH_PULL;
-	USART1_tx.port=PORTA;
+	UART_TxBuffer.DataBuffer = NULL;
+	UART_TxBuffer.DataLength = 0;
+	UART_TxBuffer.DataIndex= 0;
+	UART_TxBuffer.State = idle;
 
-	USART1_rx.pin=PIN10;
-	USART1_rx.mode=MODE_INPUT;
-	USART1_rx.configuration=CONFIG_INPUT_PULL_UP_DOWN;
-	USART1_rx.port=PORTA;
+	UART_RxBuffer.DataBuffer = NULL;
+	UART_RxBuffer.DataLength = 0;
+	UART_RxBuffer.DataIndex = 0;
+	UART_RxBuffer.State = idle;
+	/*** setup default configurations  ****/
 
-	GPIO_initPin(&USART1_tx);
-	GPIO_initPin(&USART1_rx);
+	UARTX_REG -> CR1  |=UART_WORD_LENGTH;
+	UARTX_REG -> CR2 &= UART_STOP_BITS_CLR;
+	UARTX_REG -> CR2 |= UART_STOP_BITS;
+	UARTX_REG -> BRR  = UART_FCK /UART_BUADRATE;
+
 	/*clear uart pending*/
-	NVIC_u8ClearPending (NVIC_IRQ37);
-
-	/*setup default configurations data length=8 bits
-	 *one stop bit
-	 *BuadRate = 9600
-	 */
-	UART -> CR1  |= WORD_LENGTH_8;
-	UART -> CR2 &= STOP_BITS_CLR;
-	UART -> CR2 |= STOP_BITS_1;
-	UART -> BRR  = BUADRATE_9600;
-
+	NVIC_u8ClearPending (UART_IQUNUMBER);
 	/* Setup interrupts */
+	NVIC_u8EnableIRQ(UART_IQUNUMBER);
 
-	NVIC_u8EnableIRQ(NVIC_IRQ37);
 
-
-	/*     Enable transmitter and receive       */
-	UART -> CR1 |= CR1_TE | CR1_RE;
+	/*Enable transmitter and receive*/
+	UARTX_REG -> CR1 |= UART_CR1_TE | UART_CR1_RE;
 
 	/*Enable transmitter and receive interrupts */
-	UART -> CR1 |= CR1_TCIE  | CR1_RXNEIE ;
+	UARTX_REG -> CR1 |= UART_CR1_TCIE  | UART_CR1_RXNEIE ;
 	/*Clear TC Flag*/
-	UART -> SR &= SR_TC_CLR;
+	UARTX_REG -> SR &= UART_SR_TC_CLR;
 
 
 
@@ -177,20 +159,22 @@ extern void UART_voidInit (void)
  * Output: void
  *
  */
-extern ERROR_STATUS UART_u8Send(u8 * Buffer , u16 Copy_u16Length)
+ERROR_STATUS UART_Send(u8 * Buffer , u16 BufferLength)
 {
 	ERROR_STATUS Local_error = status_Ok;
 
-	if (Buffer && Copy_u16Length >0)
+	if (Buffer && BufferLength >0)
 	{
-		if (TxBuffer.state == idle)
+		if (UART_TxBuffer.State == idle)
 		{
-			TxBuffer.data = Buffer;
-			TxBuffer.size = Copy_u16Length;
-			TxBuffer.position = 0;
-			TxBuffer.state = busy;
-			UART -> DR = TxBuffer.data[TxBuffer.position];
-			TxBuffer.position++;
+			UART_TxBuffer.DataBuffer = Buffer;
+			UART_TxBuffer.DataLength = BufferLength;
+			UART_TxBuffer.DataIndex = 0;
+			UART_TxBuffer.State = busy;
+			UARTX_REG -> DR = UART_TxBuffer.DataBuffer[UART_TxBuffer.DataIndex];
+
+
+			UART_TxBuffer.DataIndex++;
 
 		}
 	}
@@ -209,18 +193,18 @@ extern ERROR_STATUS UART_u8Send(u8 * Buffer , u16 Copy_u16Length)
  * Output: void
  *
  */
-extern ERROR_STATUS UART_u8Recieve(u8* Buffer , u16 Copy_u16Length)
+ERROR_STATUS UART_Recieve(u8* Buffer , u16 BufferLength)
 {
 
 	ERROR_STATUS Local_error = status_Ok;
-	if (Buffer && Copy_u16Length >0)
+	if (Buffer && BufferLength >0)
 	{
-		if (RxBuffer.state == idle)
+		if (UART_RxBuffer.State == idle)
 		{
-			RxBuffer.data = Buffer;
-			RxBuffer.size = Copy_u16Length;
-			RxBuffer.position = 0;
-			RxBuffer.state = busy;
+			UART_RxBuffer.DataBuffer = Buffer;
+			UART_RxBuffer.DataLength = BufferLength;
+			UART_RxBuffer.DataIndex = 0;
+			UART_RxBuffer.State = busy;
 		}
 	}
 	else
@@ -231,42 +215,53 @@ extern ERROR_STATUS UART_u8Recieve(u8* Buffer , u16 Copy_u16Length)
 	return (Local_error);
 }
 
-/*
- *
- * Description: This API to Configure parameters of UART
- * Input: BaudRate :  BUADRATE_9600 ..
- *  	  StopBits :  STOP_BITS_1 or STOP_BITS_2
- *	  	  Parity   :  ON or OFF
- *	  	  ControlFlow: ON or OFF
- *
+/* Description: This API to Configure parameters of UART 
+ * Input:
+ ***  -> UART_WORD_LENGTH_8
+ ***  -> UART_WORD_LENGTH_9
+
+ ***  -> UART_STOP_BITS_CLR
+ ***  -> UART_STOP_BITS_0_5
+ ***  -> UART_STOP_BITS_1
+ ***  -> UART_STOP_BITS_1_5
+ ***  -> UART_STOP_BITS_2
+
+ **   -> UART_CR1_PCE_DISABLE
+ ***  -> UART_CR1_PS_EVEN
+ ***  -> UART_CR1_PS_ODD
+
+ ***  ->UART_BUADRATE_9600
+
  * Output: void
  *
  */
-extern void UART_voidConfigure(u32 Copy_u32BaudRate , u8 Copy_u8StopBits , u8 Copy_u8Parity, u8 Copy_u8FlowControl)
+void UART_voidConfigure(u32 BaudRate , u8 StopBits , u8 Parity, u8 FlowControl)
 {
-	UART -> BRR  = Copy_u32BaudRate;
+	UARTX_REG -> BRR  = UART_FCK /BaudRate;;
 
-	UART -> CR2 &= STOP_BITS_CLR;
-	UART -> CR2 |= Copy_u8StopBits;
+	UARTX_REG -> CR2 &= UART_STOP_BITS_CLR;
+	UARTX_REG -> CR2 |= StopBits;
 
-	if (Copy_u8Parity == ON)
+	if (Parity == UART_CR1_PCE_DISABLE)
 	{
-		UART -> CR1 |= CR1_PCE;
+		UARTX_REG -> CR1 &= ~UART_CR1_PCE;
 	}
 	else
 	{
-		UART -> CR1 &= ~CR1_PCE;
+
+		UARTX_REG -> CR1 |= UART_CR1_PCE | Parity;
+
 	}
 
-	if (Copy_u8FlowControl == ON)
+	if (FlowControl == ON)
 	{
-		UART -> CR3 |= CR3_CTSE;
-		UART -> CR3 |= CR3_RTSE;
+		UARTX_REG -> CR3 |= UART_CR3_CTSE;
+		UARTX_REG -> CR3 |= UART_CR3_RTSE;
 	}
 	else
 	{
-		UART -> CR3 &= ~CR3_CTSE;
-		UART -> CR3 &= ~CR3_RTSE;
+		UARTX_REG -> CR3 &= ~UART_CR3_CTSE;
+		UARTX_REG -> CR3 &= ~UART_CR3_RTSE;
 
 
 	}
@@ -282,7 +277,7 @@ extern void UART_voidConfigure(u32 Copy_u32BaudRate , u8 Copy_u8StopBits , u8 Co
  * Output: void
  *
  */
-extern ERROR_STATUS UART_u8SetTxCbf(Txcbf_t Txcbf)
+extern ERROR_STATUS UART_SetTxCbf(UART_Txcbf_t Txcbf)
 {
 	ERROR_STATUS Local_error = status_Ok;
 	if (Txcbf)
@@ -303,7 +298,7 @@ extern ERROR_STATUS UART_u8SetTxCbf(Txcbf_t Txcbf)
  * Output: void
  *
  */
-extern ERROR_STATUS UART_u8SetRxCbf(Rxcbf_t Rxcbf)
+extern ERROR_STATUS UART_SetRxCbf(UART_Rxcbf_t Rxcbf)
 {
 	ERROR_STATUS Local_error = status_Ok;
 	if (Rxcbf)
@@ -322,48 +317,21 @@ extern ERROR_STATUS UART_u8SetRxCbf(Rxcbf_t Rxcbf)
 
 void USART1_IRQHandler (void)
 {
-
-  /* Clear TC Bit */
-	UART -> SR &= SR_TC_CLR;
-	if ((UART->SR & SR_TC) && (TxBuffer.data) )
-	{
-		/* Clear TC Bit */
-
-		UART -> SR &= SR_TC_CLR;
-
-		if (TxBuffer.position != TxBuffer.size)
-		{
-			UART -> DR = TxBuffer.data[TxBuffer.position];
-			 trace_printf("tx  =  %c\n\n",  UART -> DR);
-			TxBuffer.position++;
-		}
-		else
-		{
-			TxBuffer.data = NULL;
-			TxBuffer.size = 0;
-			TxBuffer.position = 0;
-			TxBuffer.state = idle;
-			appTxNotify();
-
-		}
-	}
-
-	if (UART->SR & SR_RXNE)
+	if (UARTX_REG -> SR & UART_SR_RXNE)
 	{
 		/*  Clear RXNE Bit */
-		UART -> SR &= SR_RXNE_CLR;
-		if (RxBuffer.state == busy )
+		UARTX_REG -> SR &= UART_SR_RXNE_CLR;
+		if (UART_RxBuffer.State == busy )
 		{
-			RxBuffer.data[RxBuffer.position] = UART -> DR ;
-			 trace_printf("rx  =  %c\n\n ",  UART -> DR);
-			RxBuffer.position++;
+			UART_RxBuffer.DataBuffer[UART_RxBuffer.DataIndex] = UARTX_REG -> DR ;
+			UART_RxBuffer.DataIndex++;
 
-			if (RxBuffer.position == RxBuffer.size)
+			if (UART_RxBuffer.DataIndex == UART_RxBuffer.DataLength)
 			{
-				RxBuffer.data = NULL;
-				RxBuffer.size = 0;
-				RxBuffer.position = 0;
-				RxBuffer.state = idle;
+				UART_RxBuffer.DataBuffer = NULL;
+				UART_RxBuffer.DataLength = 0;
+				UART_RxBuffer.DataIndex = 0;
+				UART_RxBuffer.State = idle;
 				appRxNotify();
 			}
 
@@ -372,7 +340,32 @@ void USART1_IRQHandler (void)
 		{
 			return ;
 		}
-
-
 	}
+
+
+	if (UARTX_REG ->SR & UART_SR_TC)
+	{
+		/* Clear TC Bit */
+
+		UARTX_REG -> SR &= UART_SR_TC_CLR;
+
+		if (UART_TxBuffer.DataIndex != UART_TxBuffer.DataLength)
+		{
+			UARTX_REG -> DR = UART_TxBuffer.DataBuffer[UART_TxBuffer.DataIndex];
+			UART_TxBuffer.DataIndex++;
+		}
+
+		else if((UART_TxBuffer.DataIndex == UART_TxBuffer.DataLength) && (UART_TxBuffer.DataBuffer))
+		{
+			UART_TxBuffer.DataBuffer = NULL;
+			UART_TxBuffer.DataLength = 0;
+			UART_TxBuffer.DataIndex= 0;
+			UART_TxBuffer.State = idle;
+			appTxNotify();
+
+		}
+	}
+
+
 }
+
